@@ -36,12 +36,6 @@ You can install the latest development version of fmp from
 remotes::install_github('jpiburn/fmp')
 ```
 
-## TODO
-
-  - clean up data returns, convert int to num, etc
-  - finish conversion of funcions to @family
-  - add other functions
-
 ## Getting Started
 
 Before getting started with `fmp` you first must obtain an API key for

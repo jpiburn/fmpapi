@@ -8,7 +8,7 @@ Author@R: person(
             email  = "jesse.piburn@gmail.com",
             role   = c("aut", "cre")
           )
-Maintainer: <jesse.piburn@gmail.com>
+Maintainer: Jesse Piburn <jesse.piburn@gmail.com>
 Description: simple and consistent interface to the Financial Modeling Prep Financial Data API
 License: MIT + file LICENSE
 Encoding: UTF-8
