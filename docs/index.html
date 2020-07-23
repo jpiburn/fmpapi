@@ -63,8 +63,8 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#fmp" class="anchor"></a>fmp</h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
-<p>The goal of <code>fmp</code> is to provide a simple and consistent interface to the Financial Modeling Prep <a href="https://financialmodelingprep.com/">Financial Data API</a> that can be used along side and integrated with other common R resources for collecting and analyzing financial data, such as <code>tidyquant</code>, <code>xts</code>, <code>TTR</code>, and <code>quantmod</code>.</p>
+
+<p>The goal of <code>fmp</code> is to provide a simple and consistent interface to the <strong>Financial Modeling Prep</strong> <a href="https://financialmodelingprep.com/">Financial Data API</a> that can be used along side and integrated with other common R resources for collecting and analyzing financial data, such as <code>tidyquant</code>, <code>xts</code>, <code>TTR</code>, and <code>quantmod</code>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -75,6 +75,15 @@
 <!-- ``` -->
 <p>You can install the latest development version of fmp from <a href="https://github.com">Github</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'jpiburn/fmp'</span>)</span></code></pre></div>
+</div>
+<div id="todo" class="section level2">
+<h2 class="hasAnchor">
+<a href="#todo" class="anchor"></a>TODO</h2>
+<ul>
+<li>clean up data returns, convert int to num, etc</li>
+<li>finish conversion of funcions to @family</li>
+<li>add other functions</li>
+</ul>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
@@ -92,7 +101,7 @@
 <div id="company-valuation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#company-valuation" class="anchor"></a>Company Valuation</h2>
-<p>The Financial Modeling Prep Financial Data API, provides several useful enpoints for company valutation analysis.From general company overviews, using <code><a href="reference/companyValuation.html">fmp_profile()</a></code></p>
+<p>The Financial Modeling Prep Financial Data API, provides several useful enpoints for company valutation analysis.From general company overviews, using <code><a href="reference/fmp_profile.html">fmp_profile()</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; Warning: package 'dplyr' was built under R version 3.6.3</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; </span></span>
@@ -107,7 +116,7 @@
 <span id="cb3-12"><a href="#cb3-12"></a></span>
 <span id="cb3-13"><a href="#cb3-13"></a>my_stocks &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'AAPL'</span>, <span class="st">'GE'</span>)</span>
 <span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/companyValuation.html">fmp_profile</a></span>(my_stocks)</span>
+<span id="cb3-15"><a href="#cb3-15"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_profile.html">fmp_profile</a></span>(my_stocks)</span>
 <span id="cb3-16"><a href="#cb3-16"></a></span>
 <span id="cb3-17"><a href="#cb3-17"></a><span class="kw">glimpse</span>(d)</span>
 <span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Rows: 2</span></span>
@@ -144,9 +153,9 @@
 <span id="cb4-3"><a href="#cb4-3"></a></span>
 <span id="cb4-4"><a href="#cb4-4"></a>my_stocks &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'AAPL'</span>, <span class="st">'GE'</span>)</span>
 <span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>d_cash &lt;-<span class="st"> </span><span class="kw"><a href="reference/companyValuation.html">fmp_cash_flow</a></span>(my_stocks)</span>
-<span id="cb4-7"><a href="#cb4-7"></a>d_balance &lt;-<span class="st"> </span><span class="kw"><a href="reference/companyValuation.html">fmp_balance_sheet</a></span>(my_stocks)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>d_metrics &lt;-<span class="st"> </span><span class="kw"><a href="reference/companyValuation.html">fmp_key_metrics</a></span>(my_stocks)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>d_cash &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_cash_flow.html">fmp_cash_flow</a></span>(my_stocks)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>d_balance &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_balance_sheet.html">fmp_balance_sheet</a></span>(my_stocks)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>d_metrics &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_key_metrics.html">fmp_key_metrics</a></span>(my_stocks)</span>
 <span id="cb4-9"><a href="#cb4-9"></a></span>
 <span id="cb4-10"><a href="#cb4-10"></a><span class="kw">glimpse</span>(d_metrics)</span>
 <span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt; Rows: 37</span></span>
@@ -233,7 +242,13 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 

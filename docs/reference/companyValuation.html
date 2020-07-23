@@ -109,29 +109,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>fmp_profile</span>(<span class='no'>symbol</span>)
-
-<span class='fu'>fmp_quote</span>(<span class='no'>symbol</span>)
-
-<span class='fu'>fmp_income</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_balance_sheet</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_cash_flow</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_ratios</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_enterprise_value</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_key_metrics</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_financial_growth</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_rating</span>(<span class='no'>symbol</span>)
-
-<span class='fu'>fmp_dcf</span>(<span class='no'>symbol</span>, <span class='kw'>historical</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>fmp_earnings_calendar</span>()
+    <pre class="usage"><span class='fu'>fmp_earnings_calendar</span>()
 
 <span class='fu'>fmp_earnings</span>(<span class='no'>symbol</span>)</pre>
     
@@ -143,20 +121,20 @@
       <td><p><code>character</code>. A vector of stock symbols.</p></td>
     </tr>
     <tr>
-      <th>quarterly</th>
-      <td><p><code>logical</code>. If <code>TRUE</code> return quarterly. If <code>FALSE</code>
-return annual. Default is <code>FALSE</code></p></td>
-    </tr>
-    <tr>
       <th>historical</th>
       <td><p><code>logical</code>. If <code>TRUE</code> return historical dcf values. If <code>FALSE</code>
 return current estimate. Default is <code>FALSE</code></p></td>
+    </tr>
+    <tr>
+      <th>quarterly</th>
+      <td><p><code>logical</code>. If <code>TRUE</code> return quarterly. If <code>FALSE</code>
+return annual. Default is <code>FALSE</code></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a></p>
+    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a> of</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -178,17 +156,6 @@ using function name as the groupBy name is more intuitive.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>my_stocks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'AAPL'</span>, <span class='st'>'GE'</span>)
 
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_profile</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_quote</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_income</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_balance_sheet</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_cash_flow</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_ratios</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_enterprise_value</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_key_metrics</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_financial_growth</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_rating</span>(<span class='no'>my_stocks</span>)
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_dcf</span>(<span class='no'>my_stocks</span>, <span class='kw'>historical</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_earnings_calendar</span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

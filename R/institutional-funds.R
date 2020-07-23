@@ -9,7 +9,7 @@
 #' Also, don't need to use null, could annotate first function, and then
 #' using function name as the groupBy name is more intuitive.
 #'
-#' @param cik `character`. A vector of Central Index Keys (CIK)
+
 #' @param year `numeric`. 4 digit year, e.g. `2020`
 #'
 #' @return a [tibble][tibble::tibble-package]
@@ -34,11 +34,12 @@ fmp_list_ciks <- function() {
 
 #' @rdname institutionalFund
 #'
+#' @param cik `character`. A vector of Central Index Keys (CIK)
 #' @export
 #' @examples
 #'
 #' berkshire_cik <- '0001067983'
-#' d <- fmp_13f(bershire_cik, year = 2020)
+#' d <- fmp_13f(berkshire_cik, year = 2020)
 fmp_13f <- function(cik, year) {
   endpoint <- "form-thirteen"
 

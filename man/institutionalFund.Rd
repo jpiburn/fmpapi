@@ -35,5 +35,5 @@ using function name as the groupBy name is more intuitive.
 d <- fmp_list_ciks()
 
 berkshire_cik <- '0001067983'
-d <- fmp_13f(bershire_cik, year = 2020)
+d <- fmp_13f(berkshire_cik, year = 2020)
 }

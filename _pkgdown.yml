@@ -1,1 +1,31 @@
 destination: docs
+
+reference:
+  - title: Company Summaries
+    desc: >
+      Collection of functions providing various overviews and summaries
+      of public companies
+    contents:
+      - fmp_profile
+      - fmp_quote
+      - fmp_income
+      - fmp_balance_sheet
+      - fmp_cash_flow
+      - fmp_key_metrics
+      - fmp_financial_growth
+      - fmp_ratios
+      - fmp_enterprise_value
+      - fmp_rating
+      - fmp_dcf
+  - title: Institutional Funds
+    desc: >
+      Collection of functions providing information related to Institutional
+      investment funds
+    contents:
+      - fmp_list_ciks
+      - fmp_13f
+  - title: API Utilities
+    desc: >
+      Utility functions for connecting to the FMP API
+    contents:
+      - fmp_api_key

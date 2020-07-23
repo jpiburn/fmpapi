@@ -15,7 +15,7 @@
 #' @param quarterly `logical`. If `TRUE` return quarterly. If `FALSE`
 #'        return annual. Default is `FALSE`
 #'
-#' @return a [tibble][tibble::tibble-package]
+#' @return a [tibble][tibble::tibble-package] of
 #' @examples
 #' my_stocks <- c('AAPL', 'GE')
 #'
@@ -23,11 +23,17 @@
 NULL
 
 
-#' @rdname companyValuation
+#' Company Profile
 #'
-#' @export
+#' @param symbol `character`. A vector of stock symbols.
+#'
+#' @return a [tibble][tibble::tibble-package] of relevant financial information
+#'
 #' @examples
+#' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_profile(my_stocks)
+#' @export
+#' @family `Company Summaries`
 fmp_profile <- function(symbol) {
   endpoint <- "profile"
 
@@ -38,11 +44,17 @@ fmp_profile <- function(symbol) {
 }
 
 
-#' @rdname companyValuation
+#' Company Quote
+#'
+#' @inheritParams fmp_profile
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_quote(my_stocks)
 #'
 #' @export
-#' @examples
-#' d <- fmp_quote(my_stocks)
+#' @family `Company Summaries`
 fmp_quote <- function(symbol) {
   endpoint <- "quote"
 
@@ -53,11 +65,20 @@ fmp_quote <- function(symbol) {
 }
 
 
-#' @rdname companyValuation
+#' Company Income Statement
+#'
+#' @inheritParams fmp_profile
+#' @inherit fmp_profile return
+#'
+#' @param quarterly `logical`. If `TRUE` return quarterly. If `FALSE`
+#'        return annual. Default is `FALSE`
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_income(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_income(my_stocks)
+#' @family `Company Summaries`
 fmp_income <- function(symbol, quarterly = FALSE) {
   endpoint <- "income-statement"
   query_list <- list(period = NULL)
@@ -69,11 +90,18 @@ fmp_income <- function(symbol, quarterly = FALSE) {
   d
 }
 
-#' @rdname companyValuation
+
+#' Company Balance Sheet
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_balance_sheet(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_balance_sheet(my_stocks)
+#' @family `Company Summaries`
 fmp_balance_sheet <- function(symbol, quarterly = FALSE) {
   endpoint <- "balance-sheet-statement"
   query_list <- list(period = NULL)
@@ -86,11 +114,17 @@ fmp_balance_sheet <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Cash Flow
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_cash_flow(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_cash_flow(my_stocks)
+#' @family `Company Summaries`
 fmp_cash_flow <- function(symbol, quarterly = FALSE) {
   endpoint <- "cash-flow-statement"
   query_list <- list(period = NULL)
@@ -103,11 +137,17 @@ fmp_cash_flow <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Financial Ratios
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_ratios(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_ratios(my_stocks)
+#' @family `Company Summaries`
 fmp_ratios <- function(symbol, quarterly = FALSE) {
   endpoint <- "ratios"
   query_list <- list(period = NULL)
@@ -120,11 +160,17 @@ fmp_ratios <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Enterprise Value
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_enterprise_value(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_enterprise_value(my_stocks)
+#' @family `Company Summaries`
 fmp_enterprise_value <- function(symbol, quarterly = FALSE) {
   endpoint <- "enterprise-values"
   query_list <- list(period = NULL)
@@ -137,11 +183,17 @@ fmp_enterprise_value <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Key Metrics
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_key_metrics(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_key_metrics(my_stocks)
+#' @family `Company Summaries`
 fmp_key_metrics <- function(symbol, quarterly = FALSE) {
   endpoint <- "key-metrics"
   query_list <- list(period = NULL)
@@ -154,11 +206,17 @@ fmp_key_metrics <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Financial Growth
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_financial_growth(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_financial_growth(my_stocks)
+#' @family `Company Summaries`
 fmp_financial_growth <- function(symbol, quarterly = FALSE) {
   endpoint <- "financial-growth"
   query_list <- list(period = NULL)
@@ -171,11 +229,17 @@ fmp_financial_growth <- function(symbol, quarterly = FALSE) {
 }
 
 
-#' @rdname companyValuation
+#' Company Rating
+#'
+#' @inheritParams fmp_profile
+#' @inherit fmp_profile return
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_rating(my_stocks, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_rating(my_stocks)
+#' @family `Company Summaries`
 fmp_rating <- function(symbol) {
   endpoint <- "rating"
 
@@ -186,11 +250,19 @@ fmp_rating <- function(symbol) {
 }
 
 
-#' @rdname companyValuation
+#' Company Discounted Cash Flow Value
+#'
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#' @param historical `logical`. If `TRUE` return historical dcf values. If `FALSE`
+#'        return current estimate. Default is `FALSE`
+#'
+#' @examples
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_dcf(my_stocks, historical = TRUE, quarterly = TRUE)
 #'
 #' @export
-#' @examples
-#' d <- fmp_dcf(my_stocks, historical = TRUE, quarterly = TRUE)
+#' @family `Company Summaries`
 fmp_dcf <- function(symbol, historical = FALSE, quarterly = FALSE) {
   endpoint <- "discounted-cash-flow"
   query_list <- list(period = NULL)
