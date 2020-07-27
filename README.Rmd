@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# fmp: An R package for interfacing with the Financial Modeling Prep API
+# fmp: An R package for interfacing with the Financial Modeling Prep API 
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/fmp)](https://CRAN.R-project.org/package=fmp)
