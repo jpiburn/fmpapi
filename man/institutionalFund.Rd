@@ -2,12 +2,9 @@
 % Please edit documentation in R/institutional-funds.R
 \name{institutionalFund}
 \alias{institutionalFund}
-\alias{fmp_list_ciks}
 \alias{fmp_13f}
 \title{Institutional Fund}
 \usage{
-fmp_list_ciks()
-
 fmp_13f(cik, year)
 }
 \arguments{
@@ -32,7 +29,6 @@ using function name as the groupBy name is more intuitive.
 }
 
 \examples{
-d <- fmp_list_ciks()
 
 berkshire_cik <- '0001067983'
 d <- fmp_13f(berkshire_cik, year = 2020)

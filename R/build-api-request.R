@@ -108,6 +108,10 @@ format_request_content <- function(df, ...) {
   d <- tibble::as_tibble(d)
 
   #TODO: format dates and datetimes, turn ints to numerics.
+  d <- dplyr::mutate_if(d, is.character, readr::parse_guess)
+  d <- dplyr::mutate_if(d, is.integer, as.numeric)
+  d <- dplyr::mutate_if(d, is.logical, as.numeric)
+
 
   d
 }

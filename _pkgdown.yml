@@ -1,13 +1,29 @@
 destination: docs
 
 reference:
+  - title: Retrieve Real-Time Quotes of Available Securities
+    desc: >
+      Collection of functions providing real-time quotes of various securities and
+      cryptocurrencies
+    contents:
+      - fmp_quote
+      - fmp_quote_nyse
+      - fmp_quote_nasdaq
+      - fmp_quote_amex
+      - fmp_quote_tsx
+      - fmp_quote_euronext
+      - fmp_quote_indexes
+      - fmp_quote_etfs
+      - fmp_quote_mutual_funds
+      - fmp_quote_commodities
+      - fmp_quote_forex
+      - fmp_quote_cryptos
   - title: Company Summaries
     desc: >
       Collection of functions providing various overviews and summaries
       of public companies
     contents:
       - fmp_profile
-      - fmp_quote
       - fmp_income
       - fmp_balance_sheet
       - fmp_cash_flow
@@ -22,7 +38,6 @@ reference:
       Collection of functions providing information related to Institutional
       investment funds
     contents:
-      - fmp_list_ciks
       - fmp_13f
   - title: API Utilities
     desc: >

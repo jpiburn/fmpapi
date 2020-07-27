@@ -19,21 +19,6 @@ NULL
 
 #' @rdname institutionalFund
 #'
-#' @export
-#' @examples
-#' d <- fmp_list_ciks()
-fmp_list_ciks <- function() {
-  endpoint <- "cik_list"
-
-  request_urls <- build_request_urls(NULL, endpoint = endpoint)
-  d <- get_request_content(request_urls)
-
-  d
-}
-
-
-#' @rdname institutionalFund
-#'
 #' @param cik `character`. A vector of Central Index Keys (CIK)
 #' @export
 #' @examples

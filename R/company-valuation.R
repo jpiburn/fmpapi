@@ -44,27 +44,6 @@ fmp_profile <- function(symbol) {
 }
 
 
-#' Company Quote
-#'
-#' @inheritParams fmp_profile
-#' @inherit fmp_profile return
-#'
-#' @examples
-#' my_stocks <- c('AAPL', 'GE')
-#' d <- fmp_quote(my_stocks)
-#'
-#' @export
-#' @family `Company Summaries`
-fmp_quote <- function(symbol) {
-  endpoint <- "quote"
-
-  request_urls <- build_request_urls(symbol, endpoint = endpoint)
-  d <- get_request_content(request_urls)
-
-  d
-}
-
-
 #' Company Income Statement
 #'
 #' @inheritParams fmp_profile

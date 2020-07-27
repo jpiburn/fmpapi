@@ -32,7 +32,6 @@ Other \verb{Company Summaries}:
 \code{\link{fmp_income}()},
 \code{\link{fmp_key_metrics}()},
 \code{\link{fmp_profile}()},
-\code{\link{fmp_quote}()},
 \code{\link{fmp_rating}()},
 \code{\link{fmp_ratios}()}
 }

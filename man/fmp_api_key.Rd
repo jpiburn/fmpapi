@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{fmp_api_key}
 \alias{fmp_api_key}
-\title{Install a Financial Modeling Prep API Key in Your \code{.Renviron} File for repeated Use}
+\title{Install a Financial Modeling Prep API Key in Your \code{.Renviron} File for Repeated Use}
 \usage{
 fmp_api_key(key, install = TRUE, overwrite = FALSE)
 }

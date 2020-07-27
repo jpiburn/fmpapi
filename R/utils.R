@@ -1,4 +1,4 @@
-#' Install a Financial Modeling Prep API Key in Your `.Renviron` File for repeated Use
+#' Install a Financial Modeling Prep API Key in Your `.Renviron` File for Repeated Use
 #'
 #' @description This function will add your FMP API key to your `.Renviron` file
 #'              so it can be called securely without being stored in your code.
