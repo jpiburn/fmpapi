@@ -8,6 +8,13 @@
 
 <title>Function reference • fmp</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
@@ -33,6 +40,9 @@
 
 
 <meta property="og:title" content="Function reference" />
+
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -109,6 +119,20 @@
     <tbody>
       <tr>
         <th colspan="2">
+          <h2 id="section-retrieve-list-of-available-securities" class="hasAnchor"><a href="#section-retrieve-list-of-available-securities" class="anchor"></a>Retrieve List of Available Securities</h2>
+          <p class="section-desc"><p>Collection of functions for listing basic information on available securities and cryptocurrencies</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="fmp_list.html">fmp_list_nyse()</a></code> <code><a href="fmp_list.html">fmp_list_nasdaq()</a></code> <code><a href="fmp_list.html">fmp_list_amex()</a></code> <code><a href="fmp_list.html">fmp_list_tsx()</a></code> <code><a href="fmp_list.html">fmp_list_etfs()</a></code> <code><a href="fmp_list.html">fmp_list_forex()</a></code> <code><a href="fmp_list.html">fmp_list_cryptos()</a></code> <code><a href="fmp_list.html">fmp_list_euronext()</a></code> <code><a href="fmp_list.html">fmp_list_mutual_funds()</a></code> <code><a href="fmp_list.html">fmp_list_commodities()</a></code> <code><a href="fmp_list.html">fmp_list_indexes()</a></code> <code><a href="fmp_list.html">fmp_list_ciks()</a></code> <code><a href="fmp_list.html">fmp_list_stocks()</a></code> </p>
+        </td>
+        <td><p>List Available Securities</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
           <h2 id="section-retrieve-real-time-quotes-of-available-securities" class="hasAnchor"><a href="#section-retrieve-real-time-quotes-of-available-securities" class="anchor"></a>Retrieve Real-Time Quotes of Available Securities</h2>
           <p class="section-desc"><p>Collection of functions providing real-time quotes of various securities and cryptocurrencies</p></p>
         </th>
@@ -118,7 +142,7 @@
         <td>
           <p><code><a href="fmp_quote.html">fmp_quote()</a></code> <code><a href="fmp_quote.html">fmp_quote_nyse()</a></code> <code><a href="fmp_quote.html">fmp_quote_nasdaq()</a></code> <code><a href="fmp_quote.html">fmp_quote_amex()</a></code> <code><a href="fmp_quote.html">fmp_quote_tsx()</a></code> <code><a href="fmp_quote.html">fmp_quote_etfs()</a></code> <code><a href="fmp_quote.html">fmp_quote_forex()</a></code> <code><a href="fmp_quote.html">fmp_quote_euronext()</a></code> <code><a href="fmp_quote.html">fmp_quote_mutual_funds()</a></code> <code><a href="fmp_quote.html">fmp_quote_commodities()</a></code> <code><a href="fmp_quote.html">fmp_quote_indexes()</a></code> </p>
         </td>
-        <td><p>Retrieve Quotes of Available Securities</p></td>
+        <td><p>Quote Available Securities</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -191,16 +215,22 @@
     </tbody><tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-institutional-funds" class="hasAnchor"><a href="#section-institutional-funds" class="anchor"></a>Institutional Funds</h2>
-          <p class="section-desc"><p>Collection of functions providing information related to Institutional investment funds</p></p>
+          <h2 id="section-sec-filing-and-institutional-funds" class="hasAnchor"><a href="#section-sec-filing-and-institutional-funds" class="anchor"></a>SEC Filing and Institutional Funds</h2>
+          <p class="section-desc"><p>Collection of functions providing information related to SEC Reported information and Institutional investment funds</p></p>
         </th>
       </tr>
       <tr>
         
         <td>
-          <p><code><a href="institutionalFund.html">fmp_13f()</a></code> </p>
+          <p><code><a href="fmp_sec_filings.html">fmp_sec_filings()</a></code> </p>
         </td>
-        <td><p>Institutional Fund</p></td>
+        <td><p>SEC RSS Feed</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fmp_13f.html">fmp_13f()</a></code> </p>
+        </td>
+        <td><p>Form 13-F Statements</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -223,9 +253,10 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#section-retrieve-list-of-available-securities">Retrieve List of Available Securities</a></li>
       <li><a href="#section-retrieve-real-time-quotes-of-available-securities">Retrieve Real-Time Quotes of Available Securities</a></li>
       <li><a href="#section-company-summaries">Company Summaries</a></li>
-      <li><a href="#section-institutional-funds">Institutional Funds</a></li>
+      <li><a href="#section-sec-filing-and-institutional-funds">SEC Filing and Institutional Funds</a></li>
       <li><a href="#section-api-utilities">API Utilities</a></li>
     </ul>
   </div>

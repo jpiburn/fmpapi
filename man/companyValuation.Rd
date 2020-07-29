@@ -24,9 +24,14 @@ a \link[tibble:tibble-package]{tibble} of
 }
 \description{
 Group of functions Description section
+
+request_urls <- build_request_urls('list', endpoint = endpoint)
+d <- get_request_content(request_urls)
 }
 \details{
 Group of functions Details paragraph.
+
+
 }
 \note{
 Currently \code{fmp_earnings()} requirest increased API access

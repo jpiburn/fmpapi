@@ -12,7 +12,7 @@
 \alias{fmp_quote_mutual_funds}
 \alias{fmp_quote_commodities}
 \alias{fmp_quote_indexes}
-\title{Retrieve Quotes of Available Securities}
+\title{Quote Available Securities}
 \usage{
 fmp_quote(symbol)
 

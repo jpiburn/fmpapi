@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Install a Financial Modeling Prep API Key in Your <code>.Renviron</code> File for Repeated Use — fmp_api_key • fmp</title>
+<title>Company Stock Screener — fmp_screen_stocks • fmp</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,12 +39,9 @@
 
 
 
-<meta property="og:title" content="Install a Financial Modeling Prep API Key in Your <code>.Renviron</code> File for Repeated Use — fmp_api_key" />
+<meta property="og:title" content="Company Stock Screener — fmp_screen_stocks" />
 
-<meta property="og:description" content="This function will add your FMP API key to your .Renviron file
-so it can be called securely without being stored in your code.
-After you have installed your key, it can be called any time by
-typing Sys.getenv('FMP_API_KEY')." />
+<meta property="og:description" content="Company Stock Screener" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -110,62 +107,135 @@ typing Sys.getenv('FMP_API_KEY')." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Install a Financial Modeling Prep API Key in Your <code>.Renviron</code> File for Repeated Use</h1>
+    <h1>Company Stock Screener</h1>
     
-    <div class="hidden name"><code>fmp_api_key.Rd</code></div>
+    <div class="hidden name"><code>fmp_screen_stocks.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function will add your FMP API key to your <code>.Renviron</code> file
-so it can be called securely without being stored in your code.
-After you have installed your key, it can be called any time by
-typing <code><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv('FMP_API_KEY')</a></code>.</p>
+    <p>Company Stock Screener</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fmp_api_key</span>(<span class='no'>key</span>, <span class='kw'>install</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>fmp_screen_stocks</span>(
+  <span class='kw'>marketCapMoreThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>betaMoreThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>betaLowerThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>volumeMoreThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>volumeLowerThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dividendMoreThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>dividendLowerThan</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>sector</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>exchange</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>limit</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>key</th>
-      <td><p><code>character</code>. The API key acquired from <a href='https://financialmodelingprep.com/developer/docs/pricing/'>'https://financialmodelingprep.com/developer/docs/pricing/'</a></p></td>
+      <th>marketCapMoreThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
     </tr>
     <tr>
-      <th>install</th>
-      <td><p><code>logical</code>. If <code>TRUE</code>, will install the key in your <code>.Renviron</code> file for use in future sessions.
-If <code>FALSE</code>, key is only loaded for the current R session and will not persist when a new session is loaded.
-This is potentially useful if you wish to access the API from a non-personal computer. Default is <code>TRUE</code>.</p></td>
+      <th>marketCapLowerThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
     </tr>
     <tr>
-      <th>overwrite</th>
-      <td><p><code>logical</code>. If <code>TRUE</code>, overwrite any existing FMP_API_KEY that you already have in your <code>.Renviron</code> file.</p></td>
+      <th>betaMoreThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>betaLowerThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>volumeMoreThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>volumeLowerThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>dividendMoreThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>dividendLowerThan</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
+    </tr>
+    <tr>
+      <th>sector</th>
+      <td><p><code>character</code>. See Details for avialable values</p></td>
+    </tr>
+    <tr>
+      <th>exchange</th>
+      <td><p><code>character</code>. See Details for avialable values</p></td>
+    </tr>
+    <tr>
+      <th>limit</th>
+      <td><p><code>numeric</code>. Default is <code>NULL</code></p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a> of stocks matching criteria</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>sector</code> paramater can be anyone of the following:</p><ul>
+<li><p><code>"Consumer Cyclical"</code></p></li>
+<li><p><code>"Energy"</code></p></li>
+<li><p><code>"Technology"</code></p></li>
+<li><p><code>"Industrials"</code></p></li>
+<li><p><code>"Financial Services"</code></p></li>
+<li><p><code>"Basic Materials"</code></p></li>
+<li><p><code>"Communication Services"</code></p></li>
+<li><p><code>"Consumer Defensive"</code></p></li>
+<li><p><code>"Healthcare"</code></p></li>
+<li><p><code>"Real Estate"</code></p></li>
+<li><p><code>"Utilities"</code></p></li>
+<li><p><code>"Industrial Goods"</code></p></li>
+<li><p><code>"Financial"</code></p></li>
+<li><p><code>"Services"</code></p></li>
+<li><p><code>"Conglomerates"</code></p></li>
+</ul>
+
+<p><code>exchange</code> paramater can be anyone of the following:</p><ul>
+<li><p><code>"nyse"</code></p></li>
+<li><p><code>"nasdaq"</code></p></li>
+<li><p><code>"amex"</code></p></li>
+<li><p><code>"euronext"</code></p></li>
+<li><p><code>"tsx"</code></p></li>
+<li><p><code>"etf"</code></p></li>
+<li><p><code>"mutual_fund"</code></p></li>
+</ul>
+
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>key</span> <span class='kw'>&lt;-</span> <span class='st'>"my_api_key"</span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>fmp</span>)
 
-<span class='fu'>fmp_api_key</span>(<span class='no'>key</span>)
+<span class='co'># small cap, high beta tech stocks</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_screen_stocks</span>(<span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='fl'>1e9</span>, <span class='kw'>betaMoreThan</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Technology'</span>)
 
-<span class='co'># first time, either reload your environment or restart R</span>
-<span class='co'># reload environment with the following</span>
-<span class='fu'><a href='https://rdrr.io/r/base/readRenviron.html'>readRenviron</a></span>(<span class='st'>"~/.Renviron"</span>)
-
-<span class='co'># you can check it with:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span>(<span class='st'>"FMP_API_KEY"</span>)
-}</div></pre>
+<span class='co'># mid cap healthcare stocks listed on the nasdaq</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_screen_stocks</span>(<span class='kw'>marketCapMoreThan</span> <span class='kw'>=</span> <span class='fl'>1e9</span>, <span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='fl'>1e10</span>,
+<span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Healthcare'</span>, <span class='kw'>exchange</span> <span class='kw'>=</span> <span class='st'>'nasdaq'</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -1,4 +1,4 @@
-#' Retrieve Quotes of Available Securities
+#' Quote Available Securities
 #'
 #' Group of functions for retrieving groups of related securities
 #'
@@ -39,6 +39,8 @@ bulk_quote_endpoint <- function(endpoint) {
   d
 }
 
+#' Retrieve Quotes from New York Stock Exchange
+#'
 #' @export
 #' @rdname fmp_quote
 #' @examples

@@ -6,6 +6,8 @@
 \alias{fmp-package}
 \title{fmp: Access to the Financial Modeling Prep Financial Data API}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 simple and consistent interface to the Financial Modeling Prep Financial Data API
 }
 \keyword{internal}

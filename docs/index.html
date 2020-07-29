@@ -6,12 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Access to the Financial Modeling Prep Financial Data API • fmp</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Access to the Financial Modeling Prep Financial Data API">
 <meta property="og:description" content="simple and consistent interface to the Financial Modeling Prep Financial Data API">
+<meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -59,9 +66,10 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api" class="section level1">
+<div id="fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api" class="anchor"></a>fmp: An R package for interfacing with the Financial Modeling Prep API</h1></div>
+<a href="#fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="anchor"></a>fmp: An R package for interfacing with the Financial Modeling Prep API <img src="reference/figures/logo.png" align="right" height="202.5">
+</h1></div>
 <!-- badges: start -->
 
 <p>The goal of <code>fmp</code> is to provide a simple and consistent interface to the <strong>Financial Modeling Prep</strong> <a href="https://financialmodelingprep.com/">Financial Data API</a> that can be used along side and integrated with other common R resources for collecting and analyzing financial data, such as <code>tidyquant</code>, <code>xts</code>, <code>TTR</code>, and <code>quantmod</code>.</p>
@@ -113,13 +121,13 @@
 <span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Rows: 2</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Columns: 26</span></span>
 <span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; $ symbol              &lt;chr&gt; "AAPL", "GE"</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 379.24, 6.71</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 373.01, 6.89</span></span>
 <span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; $ beta                &lt;dbl&gt; 1.228499, 1.177065</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; $ vol_avg             &lt;dbl&gt; 34802709, 105497669</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.643751e+12, 5.869297e+10</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; $ vol_avg             &lt;dbl&gt; 34817255, 104920242</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.616748e+12, 6.026745e+10</span></span>
 <span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; $ last_div            &lt;dbl&gt; 3.13, 0.04</span></span>
 <span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; $ range               &lt;chr&gt; "192.58-399.82", "5.48-13.26"</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; 8.78, -0.15</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; -6.23, 0.18</span></span>
 <span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; $ company_name        &lt;chr&gt; "Apple Inc.", "General Electric Company"</span></span>
 <span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; $ exchange            &lt;chr&gt; "Nasdaq Global Select", "New York Stock Exchange"</span></span>
 <span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt; $ exchange_short_name &lt;chr&gt; "NASDAQ", "NYSE"</span></span>

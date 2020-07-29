@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fmp: An R package for interfacing with the Financial Modeling Prep API
+# fmp: An R package for interfacing with the Financial Modeling Prep API <img src='man/figures/logo.png' align="right" height="202.5" />
 
 <!-- badges: start -->
 
@@ -86,13 +86,13 @@ glimpse(d)
 #> Rows: 2
 #> Columns: 26
 #> $ symbol              <chr> "AAPL", "GE"
-#> $ price               <dbl> 379.24, 6.71
+#> $ price               <dbl> 373.01, 6.89
 #> $ beta                <dbl> 1.228499, 1.177065
-#> $ vol_avg             <dbl> 34802709, 105497669
-#> $ mkt_cap             <dbl> 1.643751e+12, 5.869297e+10
+#> $ vol_avg             <dbl> 34817255, 104920242
+#> $ mkt_cap             <dbl> 1.616748e+12, 6.026745e+10
 #> $ last_div            <dbl> 3.13, 0.04
 #> $ range               <chr> "192.58-399.82", "5.48-13.26"
-#> $ changes             <dbl> 8.78, -0.15
+#> $ changes             <dbl> -6.23, 0.18
 #> $ company_name        <chr> "Apple Inc.", "General Electric Company"
 #> $ exchange            <chr> "Nasdaq Global Select", "New York Stock Exchange"
 #> $ exchange_short_name <chr> "NASDAQ", "NYSE"

@@ -6,8 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List Available Stock Symbols — fmp_list_stocks • fmp</title>
+<title>Form 13-F Statements — fmp_13f • fmp</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
@@ -32,9 +39,12 @@
 
 
 
-<meta property="og:title" content="List Available Stock Symbols — fmp_list_stocks" />
+<meta property="og:title" content="Form 13-F Statements — fmp_13f" />
 
-<meta property="og:description" content="List Available Stock Symbols" />
+<meta property="og:description" content="Form 13-F statements provides position-level report of all institutional
+investment managers with more than $100m in assets under management" />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,32 +108,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List Available Stock Symbols</h1>
+    <h1>Form 13-F Statements</h1>
     
-    <div class="hidden name"><code>fmp_list_stocks.Rd</code></div>
+    <div class="hidden name"><code>fmp_13f.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>List Available Stock Symbols</p>
+    <p>Form 13-F statements provides position-level report of all institutional
+investment managers with more than $100m in assets under management</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fmp_list_stocks</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>fmp_13f</span>(<span class='no'>cik</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>cik</th>
+      <td><p><code>character</code>. A vector of Central Index Keys (CIK)</p></td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td><p><code>numeric</code>. 4 digit year, e.g. <code>2020</code>. If <code>NULL</code>, the current year
+will be taken from <code><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date()</a></code>. Default is <code>NULL</code></p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><a href='https://tibble.tidyverse.org/reference/tbl_df-class.html'>tibble::tbl_df</a></p>
+    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a></p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='fmp_list.html'>fmp_list_ciks()</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_list_stocks</span>()</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>berkshire_cik</span> <span class='kw'>&lt;-</span> <span class='st'>'0001067983'</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_13f</span>(<span class='no'>berkshire_cik</span>)
+
+<span class='co'># 13-F forms from 2018</span>
+<span class='no'>d_18</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_13f</span>(<span class='no'>berkshire_cik</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2018</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

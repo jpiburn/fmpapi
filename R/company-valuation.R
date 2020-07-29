@@ -257,21 +257,21 @@ fmp_dcf <- function(symbol, historical = FALSE, quarterly = FALSE) {
   d
 }
 
-#' List Available Stock Symbols
+#' #' List Available Stock Symbols
+#' #'
+#' #' @return [tibble::tbl_df]
+#' #' @export
+#' #'
+#' #' @examples
+#' #' d <- fmp_list_stocks()
+#' fmp_list_stocks <- function() {
+#'   endpoint <- "stock"
 #'
-#' @return [tibble::tbl_df]
-#' @export
+#'   request_urls <- build_request_urls('list', endpoint = endpoint)
+#'   d <- get_request_content(request_urls)
 #'
-#' @examples
-#' d <- fmp_list_stocks()
-fmp_list_stocks <- function() {
-  endpoint <- "stock"
-
-  request_urls <- build_request_urls('list', endpoint = endpoint)
-  d <- get_request_content(request_urls)
-
-  d
-}
+#'   d
+#' }
 
 # fmp_earnings_calendar <- function(symbol = NULL) {
 #   endpoint <- "earning_calendar"
