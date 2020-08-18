@@ -38,9 +38,9 @@ fmp_api_key <- function(key, install = TRUE, overwrite = FALSE) {
     } else {
       if (overwrite) {
         message("Your original .Renviron will be backed up and stored in your R HOME directory if needed.")
-        oldenv <- read.table(renv, stringsAsFactors = FALSE)
+        oldenv <- utils::read.table(renv, stringsAsFactors = FALSE)
         newenv <- oldenv[-grep("FMP_API_KEY", oldenv), ]
-        write.table(newenv, renv, quote = FALSE, sep = "\n",
+        utils::write.table(newenv, renv, quote = FALSE, sep = "\n",
                     col.names = FALSE, row.names = FALSE)
       } else {
         tv <- readLines(renv)

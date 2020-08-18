@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-simple and consistent interface to the Financial Modeling Prep Financial Data API
+Simple and consistent interface to the Financial Modeling Prep Financial Data API.
 }
 \author{
 \strong{Maintainer}: Jesse Piburn \email{piburnjo@ornl.gov} (\href{https://orcid.org/0000-0003-4967-7912}{ORCID})

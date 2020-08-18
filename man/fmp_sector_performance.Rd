@@ -10,9 +10,6 @@ fmp_sector_performance(historical = FALSE)
 \item{historical}{\code{logical}. If \code{TRUE} return historical values. If \code{FALSE}
 return current. Default is \code{FALSE}}
 }
-\value{
-
-}
 \description{
 Market Sector Performance
 }

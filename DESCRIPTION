@@ -11,7 +11,7 @@ Authors@R:
       person(given = "UT-Battelle, LLC",
              role = "cph"))
 Maintainer: Jesse Piburn <jesse.piburn@gmail.com>
-Description: simple and consistent interface to the Financial Modeling Prep Financial Data API
+Description: Simple and consistent interface to the Financial Modeling Prep Financial Data API.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -22,8 +22,10 @@ Imports:
     jsonlite,
     readr,
     tibble,
+    tidyselect,
     janitor,
     purrr,
-    tidyr
+    tidyr,
+    utils
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.1

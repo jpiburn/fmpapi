@@ -3,7 +3,6 @@
 #' @param historical `logical`. If `TRUE` return historical values. If `FALSE`
 #'        return current. Default is `FALSE`
 #'
-#' @return
 #' @export
 fmp_sector_performance <- function(historical = FALSE) {
   endpoint <- 'sectors-performance'

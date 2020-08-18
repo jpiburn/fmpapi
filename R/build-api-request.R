@@ -107,7 +107,7 @@ format_request_content <- function(df, arguments) {
 
       # dcf -----
       if (arguments$endpoint == 'historical-discounted-cash-flow' && arguments$historical == TRUE)
-        df <- tidyr::unnest(df, cols = historicalDCF)
+        df <- tidyr::unnest(df, cols = tidyselect::contains("historicalDCF"))
 
       # historical-price-full
       if (arguments$endpoint[[1]] == 'historical-price-full') {
