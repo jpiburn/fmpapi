@@ -7,14 +7,16 @@ build_request_urls <- function(base_path, endpoint, query_list = NULL) {
 
   } else {
 
-    stop_message <- glue::glue(
+    warning_message <- glue::glue(
       'An API Key is required to use the Financial Modeling Prep API and fmp package.',
+      'No API Key was found and a limited use key of "demo" is being used.',
       'To obtain an API key please visit https://financialmodelingprep.com/developer/docs/pricing/',
       "\nOnce obtained, you can call `fmp::fmp_api_key('my_api_key')` to save your key to .Renviron file.",
       "\nWhen first installed, you will need to reload your .Renviron file by either restarting R or running `readRenviron('~/.Renviron')`"
       )
 
-    stop(stop_message)
+    warning(warning_message)
+    apikey <- 'demo'
   }
 
 

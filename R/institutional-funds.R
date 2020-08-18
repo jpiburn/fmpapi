@@ -12,10 +12,12 @@
 #' @seealso [fmp_list_ciks()]
 #' @examples
 #'
-#' \donttest{
 #' berkshire_cik <- '0001067983'
+#' \donttest{
 #' d <- fmp_13f(berkshire_cik)
+#' }
 #'
+#' \donttest{
 #' # 13-F forms from 2018
 #' d_18 <- fmp_13f(berkshire_cik, year = 2018)
 #' }

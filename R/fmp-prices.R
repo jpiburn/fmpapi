@@ -38,7 +38,7 @@ fmp_prices <- function(symbol, interval = c('1min', '5min', '15min', '30min', '1
 #' \donttest{
 #'
 #' # last 100 days of Apple stock prices
-#' d <- fmp_prices('AAPL', last_n = 100)
+#' d <- fmp_daily_prices('AAPL', last_n = 100)
 #' }
 #'
 #' @export

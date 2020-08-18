@@ -11,7 +11,7 @@
 Simple and consistent interface to the Financial Modeling Prep Financial Data API.
 }
 \author{
-\strong{Maintainer}: Jesse Piburn \email{piburnjo@ornl.gov} (\href{https://orcid.org/0000-0003-4967-7912}{ORCID})
+\strong{Maintainer}: Jesse Piburn \email{jesse.piburn@gmail.com} (\href{https://orcid.org/0000-0003-4967-7912}{ORCID})
 
 Other contributors:
 \itemize{

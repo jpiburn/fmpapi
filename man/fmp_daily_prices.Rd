@@ -25,7 +25,7 @@ Daily Security Prices
 \donttest{
 
 # last 100 days of Apple stock prices
-d <- fmp_prices('AAPL', last_n = 100)
+d <- fmp_daily_prices('AAPL', last_n = 100)
 }
 
 }
