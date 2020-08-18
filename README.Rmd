@@ -27,7 +27,7 @@ for collecting and analyzing financial data, such as `tidyquant`, `xts`, `TTR`, 
 <!-- You can install the released version of fmp from [CRAN](https://CRAN.R-project.org) with: -->
 <!-- --- actually not on CRAN yet -->
 <!-- ``` r -->
-<!-- install.packages("fmp") -->
+<!-- install.packages("fmpapi") -->
 <!-- ``` -->
 You can install the latest development version of fmp from [Github](https://github.com) with:
 
@@ -37,7 +37,7 @@ remotes::install_github('jpiburn/fmpapi')
 
 ## Getting Started
 
-Before getting started with `fmp` you first must obtain an API key for the Financial Modeling Prep Financial Data API. For details, see [here](https://financialmodelingprep.com/developer/docs/pricing/).
+Before getting started with `fmpapi` you first must obtain an API key for the Financial Modeling Prep Financial Data API. For details, see [here](https://financialmodelingprep.com/developer/docs/pricing/).
 
 Once you sign up, you can add your API key to your `.Renviron` file by using `fmp_api_key()`. This will add a `FMP_API_KEY` entry to your `.Renviron` file so it will automatically be available in future sessions. When first installed however, you will need to reload your .Renviron file by either restarting R or running `readRenviron('~/.Renviron')`
 
