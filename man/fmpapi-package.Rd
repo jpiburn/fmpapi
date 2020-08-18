@@ -10,6 +10,14 @@
 
 Simple and consistent interface to the Financial Modeling Prep Financial Data API.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/jpiburn/fmpapi}
+  \item Report bugs at \url{https://github.com/jpiburn/fmpapi/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Jesse Piburn \email{jesse.piburn@gmail.com} (\href{https://orcid.org/0000-0003-4967-7912}{ORCID})
 
