@@ -19,8 +19,11 @@ a \link[tibble:tibble-package]{tibble} of relevant financial information
 Company Key Metrics
 }
 \examples{
+
+\donttest{
 my_stocks <- c('AAPL', 'GE')
 d <- fmp_key_metrics(my_stocks, quarterly = TRUE)
+}
 
 }
 \seealso{
@@ -28,11 +31,15 @@ Other \verb{Company Summaries}:
 \code{\link{fmp_balance_sheet}()},
 \code{\link{fmp_cash_flow}()},
 \code{\link{fmp_dcf}()},
+\code{\link{fmp_dividends}()},
 \code{\link{fmp_enterprise_value}()},
 \code{\link{fmp_financial_growth}()},
+\code{\link{fmp_full_financial}()},
 \code{\link{fmp_income}()},
+\code{\link{fmp_market_cap}()},
 \code{\link{fmp_profile}()},
 \code{\link{fmp_rating}()},
-\code{\link{fmp_ratios}()}
+\code{\link{fmp_ratios}()},
+\code{\link{fmp_splits}()}
 }
 \concept{\verb{Company Summaries}}

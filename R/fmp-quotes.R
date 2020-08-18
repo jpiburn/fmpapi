@@ -1,26 +1,20 @@
-#' Quote Available Securities
-#'
-#' Group of functions for retrieving groups of related securities
-#'
-#' Group of functions Details paragraph.
+#' Retrieve Real-Time Quotes of Selected Securities and Cryptocurrencies
 #'
 #' @param symbol `character`. A vector of stock symbols.
-#'
-#' @section After Arguments and Value sections:
-#' Despite its location, this actually comes after the Arguments and Value sections.
-#' Also, don't need to use null, could annotate first function, and then
-#' using function name as the groupBy name is more intuitive.
-#'
 #'
 #' @return a [tibble][tibble::tibble-package] of quotes of requested securities
 #' @examples
 #'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_quote(my_stocks)
+#'}
 #'
 #' @export
 fmp_quote <- function(symbol) {
   endpoint <- "quote"
+
+  symbol <- paste0(symbol, collapse = ",")
 
   request_urls <- build_request_urls(symbol, endpoint = endpoint)
   d <- get_request_content(request_urls)
@@ -39,57 +33,54 @@ bulk_quote_endpoint <- function(endpoint) {
   d
 }
 
-#' Retrieve Quotes from New York Stock Exchange
+#' Retrieve Real-Time Quotes of Various Securities and Cryptocurrencies
 #'
+#' @return a [tibble][tibble::tibble-package] of quotes of requested securities
+#'
+#' @name fmpQuote
+NULL
+
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
-#' @examples
-#'
-#' # real-time quote of every stock on nyse
-#' df_nyse <- fmp_quote_nyse()
 fmp_quote_nyse <- function() bulk_quote_endpoint('nyse')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_nasdaq <- function() bulk_quote_endpoint('nasdaq')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_amex <- function() bulk_quote_endpoint('amex')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_tsx <- function() bulk_quote_endpoint('tsx')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_etfs <- function() bulk_quote_endpoint('etf')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_forex <- function() bulk_quote_endpoint('forex')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
-#'  @examples
-#'
-#' # real-time quote of every stock on nyse
-#' df_crypto <- fmp_quote_cryptos()
 fmp_quote_cryptos <- function() bulk_quote_endpoint('crypto')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_euronext <- function() bulk_quote_endpoint('euronext')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_mutual_funds <- function() bulk_quote_endpoint('mutual_fund')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_commodities <- function() bulk_quote_endpoint('commodity')
 
+#' @rdname fmpQuote
 #' @export
-#' @rdname fmp_quote
 fmp_quote_indexes <- function() bulk_quote_endpoint('index')
 

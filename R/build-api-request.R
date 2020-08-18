@@ -38,15 +38,17 @@ build_request_urls <- function(base_path, endpoint, query_list = NULL) {
 
 #' @noRd
 get_request_content <- function(request_urls, ...) {
-  d <- purrr::map_dfr(request_urls, ~ request_url_content(.x))
-  d <- format_request_content(d, ...)
+  arguments <- list(...)
+
+  d <- purrr::map_dfr(request_urls, ~ request_url_content(.x, arguments = arguments))
+  d <- format_request_content(d, arguments = arguments)
 
   d
 }
 
 
 #' @noRd
-request_url_content <- function(request_url) {
+request_url_content <- function(request_url, arguments) {
 
   ua <- httr::user_agent("https://github.com/jpiburn/fmp")
   get_return <- httr::GET(request_url, ua)
@@ -81,14 +83,23 @@ request_url_content <- function(request_url) {
   }
 
   return_json <- httr::content(get_return, as = "text")
-  jsonlite::fromJSON(return_json)
+  d <- jsonlite::fromJSON(return_json)
+
+  if (length(arguments$endpoint) != 0) {
+    if (arguments$endpoint[[1]] == 'historical-price-full') {
+      symbol <- d$symbol
+      d <- tibble::as_tibble(d$historical)
+      d <- tibble::add_column(d, symbol, .before = 1)
+    }
+  }
+
+  d
 }
 
 
 #' @noRd
-format_request_content <- function(df, ...) {
+format_request_content <- function(df, arguments) {
 
-  arguments <- list(...)
   if (length(arguments) != 0) { # any additional special case formatting
 
     # any endpoint specific formatting -----
@@ -98,6 +109,10 @@ format_request_content <- function(df, ...) {
       if (arguments$endpoint == 'historical-discounted-cash-flow' && arguments$historical == TRUE)
         df <- tidyr::unnest(df, cols = historicalDCF)
 
+      # historical-price-full
+      if (arguments$endpoint[[1]] == 'historical-price-full') {
+
+      }
       # currently no others -----
     }
 
@@ -107,7 +122,6 @@ format_request_content <- function(df, ...) {
   d <- janitor::clean_names(df)
   d <- tibble::as_tibble(d)
 
-  #TODO: format dates and datetimes, turn ints to numerics.
   d <- dplyr::mutate_if(d, is.character, readr::parse_guess)
   d <- dplyr::mutate_if(d, is.integer, as.numeric)
   d <- dplyr::mutate_if(d, is.logical, as.numeric)

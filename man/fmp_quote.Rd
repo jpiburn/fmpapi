@@ -2,39 +2,9 @@
 % Please edit documentation in R/fmp-quotes.R
 \name{fmp_quote}
 \alias{fmp_quote}
-\alias{fmp_quote_nyse}
-\alias{fmp_quote_nasdaq}
-\alias{fmp_quote_amex}
-\alias{fmp_quote_tsx}
-\alias{fmp_quote_etfs}
-\alias{fmp_quote_forex}
-\alias{fmp_quote_euronext}
-\alias{fmp_quote_mutual_funds}
-\alias{fmp_quote_commodities}
-\alias{fmp_quote_indexes}
-\title{Quote Available Securities}
+\title{Retrieve Real-Time Quotes of Selected Securities and Cryptocurrencies}
 \usage{
 fmp_quote(symbol)
-
-fmp_quote_nyse()
-
-fmp_quote_nasdaq()
-
-fmp_quote_amex()
-
-fmp_quote_tsx()
-
-fmp_quote_etfs()
-
-fmp_quote_forex()
-
-fmp_quote_euronext()
-
-fmp_quote_mutual_funds()
-
-fmp_quote_commodities()
-
-fmp_quote_indexes()
 }
 \arguments{
 \item{symbol}{\code{character}. A vector of stock symbols.}
@@ -43,24 +13,13 @@ fmp_quote_indexes()
 a \link[tibble:tibble-package]{tibble} of quotes of requested securities
 }
 \description{
-Group of functions for retrieving groups of related securities
+Retrieve Real-Time Quotes of Selected Securities and Cryptocurrencies
 }
-\details{
-Group of functions Details paragraph.
-}
-\section{After Arguments and Value sections}{
-
-Despite its location, this actually comes after the Arguments and Value sections.
-Also, don't need to use null, could annotate first function, and then
-using function name as the groupBy name is more intuitive.
-}
-
 \examples{
 
+\donttest{
 my_stocks <- c('AAPL', 'GE')
 d <- fmp_quote(my_stocks)
+}
 
-
-# real-time quote of every stock on nyse
-df_nyse <- fmp_quote_nyse()
 }

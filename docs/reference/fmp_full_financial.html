@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Company Valuation — companyValuation • fmp</title>
+<title>Company Full Financial Statement — fmp_full_financial • fmp</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,11 +39,9 @@
 
 
 
-<meta property="og:title" content="Company Valuation — companyValuation" />
+<meta property="og:title" content="Company Full Financial Statement — fmp_full_financial" />
 
-<meta property="og:description" content="Group of functions Description section
-request_urls &amp;lt;- build_request_urls('list', endpoint = endpoint)
-d &amp;lt;- get_request_content(request_urls)" />
+<meta property="og:description" content="Company Full Financial Statement" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -109,22 +107,18 @@ d &amp;lt;- get_request_content(request_urls)" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Company Valuation</h1>
+    <h1>Company Full Financial Statement</h1>
     
-    <div class="hidden name"><code>companyValuation.Rd</code></div>
+    <div class="hidden name"><code>fmp_full_financial.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Group of functions Description section</p>
-<p>request_urls &lt;- build_request_urls('list', endpoint = endpoint)
-d &lt;- get_request_content(request_urls)</p>
+    <p>Company Full Financial Statement</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>fmp_earnings_calendar</span>()
-
-<span class='fu'>fmp_earnings</span>(<span class='no'>symbol</span>)</pre>
+    <pre class="usage"><span class='fu'>fmp_full_financial</span>(<span class='no'>symbol</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,11 +126,6 @@ d &lt;- get_request_content(request_urls)</p>
     <tr>
       <th>symbol</th>
       <td><p><code>character</code>. A vector of stock symbols.</p></td>
-    </tr>
-    <tr>
-      <th>historical</th>
-      <td><p><code>logical</code>. If <code>TRUE</code> return historical dcf values. If <code>FALSE</code>
-return current estimate. Default is <code>FALSE</code></p></td>
     </tr>
     <tr>
       <th>quarterly</th>
@@ -147,31 +136,33 @@ return annual. Default is <code>FALSE</code></p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a> of</p>
+    <p>a <a href='https://tibble.tidyverse.org/reference/tibble-package.html'>tibble</a> of relevant financial information</p>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Group of functions Details paragraph.</p>
-
-
-    
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>Currently <code>fmp_earnings()</code> requirest increased API access</p>
-    
-    <h2 class="hasAnchor" id="after-arguments-and-value-sections"><a class="anchor" href="#after-arguments-and-value-sections"></a>After Arguments and Value sections</h2>
-
-    
-
-<p>Despite its location, this actually comes after the Arguments and Value sections.
-Also, don't need to use null, could annotate first function, and then
-using function name as the groupBy name is more intuitive.</p>
+    <div class='dont-index'><p>Other <code>Company Summaries</code>: 
+<code><a href='fmp_balance_sheet.html'>fmp_balance_sheet</a>()</code>,
+<code><a href='fmp_cash_flow.html'>fmp_cash_flow</a>()</code>,
+<code><a href='fmp_dcf.html'>fmp_dcf</a>()</code>,
+<code><a href='fmp_dividends.html'>fmp_dividends</a>()</code>,
+<code><a href='fmp_enterprise_value.html'>fmp_enterprise_value</a>()</code>,
+<code><a href='fmp_financial_growth.html'>fmp_financial_growth</a>()</code>,
+<code><a href='fmp_income.html'>fmp_income</a>()</code>,
+<code><a href='fmp_key_metrics.html'>fmp_key_metrics</a>()</code>,
+<code><a href='fmp_market_cap.html'>fmp_market_cap</a>()</code>,
+<code><a href='fmp_profile.html'>fmp_profile</a>()</code>,
+<code><a href='fmp_rating.html'>fmp_rating</a>()</code>,
+<code><a href='fmp_ratios.html'>fmp_ratios</a>()</code>,
+<code><a href='fmp_splits.html'>fmp_splits</a>()</code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>my_stocks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'AAPL'</span>, <span class='st'>'GE'</span>)
+    <pre class="examples"><div class='input'>
+<span class='co'># \donttest{</span>
+<span class='no'>my_stocks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'AAPL'</span>, <span class='st'>'GE'</span>)
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_full_financial</span>(<span class='no'>my_stocks</span>, <span class='kw'>quarterly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error: Can't combine `..1$longtermdebtnoncurrent` &lt;character&gt; and `..2$longtermdebtnoncurrent` &lt;double&gt;.</span></div><div class='input'># }
 
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_earnings_calendar</span>()</div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -180,11 +171,7 @@ using function name as the groupBy name is more intuitive.</p>
       
       <li><a href="#value">Value</a></li>
 
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#after-arguments-and-value-sections">After Arguments and Value sections</a></li>
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

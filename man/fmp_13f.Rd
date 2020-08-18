@@ -20,11 +20,15 @@ Form 13-F statements provides position-level report of all institutional
 investment managers with more than $100m in assets under management
 }
 \examples{
+
+\donttest{
 berkshire_cik <- '0001067983'
 d <- fmp_13f(berkshire_cik)
 
 # 13-F forms from 2018
 d_18 <- fmp_13f(berkshire_cik, year = 2018)
+}
+
 }
 \seealso{
 \code{\link[=fmp_list_ciks]{fmp_list_ciks()}}

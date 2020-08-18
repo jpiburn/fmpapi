@@ -218,14 +218,17 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>fmp</span>)
+    <pre class="examples"><div class='input'>
+<span class='co'># \donttest{</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>fmp</span>)
 
 <span class='co'># small cap, high beta tech stocks</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_screen_stocks</span>(<span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='fl'>1e9</span>, <span class='kw'>betaMoreThan</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Technology'</span>)
 
 <span class='co'># mid cap healthcare stocks listed on the nasdaq</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_screen_stocks</span>(<span class='kw'>marketCapMoreThan</span> <span class='kw'>=</span> <span class='fl'>1e9</span>, <span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='fl'>1e10</span>,
-<span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Healthcare'</span>, <span class='kw'>exchange</span> <span class='kw'>=</span> <span class='st'>'nasdaq'</span>)</div></pre>
+<span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Healthcare'</span>, <span class='kw'>exchange</span> <span class='kw'>=</span> <span class='st'>'nasdaq'</span>)
+<span class='co'># }</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -60,10 +60,13 @@ using function name as the groupBy name is more intuitive.
 }
 
 \examples{
+
+\donttest{
 library(fmp)
 
 # all available stocks
 df_stocks <- fmp_list_stocks()
 
 df_etfs <- fmp_list_etfs()
+}
 }

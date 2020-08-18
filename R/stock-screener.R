@@ -43,6 +43,8 @@
 #' @return a [tibble][tibble::tibble-package] of stocks matching criteria
 #'
 #' @examples
+#'
+#' \donttest{
 #' library(fmp)
 #'
 #' # small cap, high beta tech stocks
@@ -51,6 +53,7 @@
 #' # mid cap healthcare stocks listed on the nasdaq
 #' d <- fmp_screen_stocks(marketCapMoreThan = 1e9, marketCapLowerThan = 1e10,
 #' sector = 'Healthcare', exchange = 'nasdaq')
+#' }
 #'
 #' @export
 fmp_screen_stocks <- function(

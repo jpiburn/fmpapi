@@ -1,28 +1,3 @@
-#' Company Valuation
-#'
-#' Group of functions Description section
-#'
-#' Group of functions Details paragraph.
-#'
-#' @section After Arguments and Value sections:
-#' Despite its location, this actually comes after the Arguments and Value sections.
-#' Also, don't need to use null, could annotate first function, and then
-#' using function name as the groupBy name is more intuitive.
-#'
-#' @param symbol `character`. A vector of stock symbols.
-#' @param historical `logical`. If `TRUE` return historical dcf values. If `FALSE`
-#'        return current estimate. Default is `FALSE`
-#' @param quarterly `logical`. If `TRUE` return quarterly. If `FALSE`
-#'        return annual. Default is `FALSE`
-#'
-#' @return a [tibble][tibble::tibble-package] of
-#' @examples
-#' my_stocks <- c('AAPL', 'GE')
-#'
-#' @name companyValuation
-NULL
-
-
 #' Company Profile
 #'
 #' @param symbol `character`. A vector of stock symbols.
@@ -30,8 +5,12 @@ NULL
 #' @return a [tibble][tibble::tibble-package] of relevant financial information
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_profile(my_stocks)
+#' }
+#'
 #' @export
 #' @family `Company Summaries`
 fmp_profile <- function(symbol) {
@@ -43,77 +22,56 @@ fmp_profile <- function(symbol) {
   d
 }
 
-
-#' Company Income Statement
+#' Company Stock Splits
 #'
-#' @inheritParams fmp_profile
-#' @inherit fmp_profile return
+#' @param symbol `character`. A vector of stock symbols.
 #'
-#' @param quarterly `logical`. If `TRUE` return quarterly. If `FALSE`
-#'        return annual. Default is `FALSE`
+#' @return a [tibble][tibble::tibble-package] of relevant financial information
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
-#' d <- fmp_income(my_stocks, quarterly = TRUE)
+#' d <- fmp_splits(my_stocks)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
-fmp_income <- function(symbol, quarterly = FALSE) {
-  endpoint <- "income-statement"
-  query_list <- list(period = NULL)
-  if (quarterly) query_list$period <- "quarter"
+fmp_splits <- function(symbol) {
+  endpoint <- c('historical-price-full', 'stock_split')
 
-  request_urls <- build_request_urls(symbol, endpoint = endpoint, query_list = query_list)
-  d <- get_request_content(request_urls)
+  request_urls <- build_request_urls(symbol, endpoint = endpoint)
+  d <- get_request_content(request_urls, endpoint = endpoint)
 
   d
 }
 
 
-#' Company Balance Sheet
+#' Company Stock Dividends
 #'
-#' @inheritParams fmp_income
-#' @inherit fmp_profile return
+#' @param symbol `character`. A vector of stock symbols.
+#'
+#' @return a [tibble][tibble::tibble-package] of relevant financial information
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
-#' d <- fmp_balance_sheet(my_stocks, quarterly = TRUE)
+#' d <- fmp_dividends(my_stocks)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
-fmp_balance_sheet <- function(symbol, quarterly = FALSE) {
-  endpoint <- "balance-sheet-statement"
-  query_list <- list(period = NULL)
-  if (quarterly) query_list$period <- "quarter"
+fmp_dividends <- function(symbol) {
+  endpoint <- c('historical-price-full', 'stock_dividend')
 
-  request_urls <- build_request_urls(symbol, endpoint = endpoint, query_list = query_list)
-  d <- get_request_content(request_urls)
+  request_urls <- build_request_urls(symbol, endpoint = endpoint)
+  d <- get_request_content(request_urls, endpoint = endpoint)
 
   d
 }
 
 
-#' Company Cash Flow
-#'
-#' @inheritParams fmp_income
-#' @inherit fmp_profile return
-#'
-#' @examples
-#' my_stocks <- c('AAPL', 'GE')
-#' d <- fmp_cash_flow(my_stocks, quarterly = TRUE)
-#'
-#' @export
-#' @family `Company Summaries`
-fmp_cash_flow <- function(symbol, quarterly = FALSE) {
-  endpoint <- "cash-flow-statement"
-  query_list <- list(period = NULL)
-  if (quarterly) query_list$period <- "quarter"
-
-  request_urls <- build_request_urls(symbol, endpoint = endpoint, query_list = query_list)
-  d <- get_request_content(request_urls)
-
-  d
-}
 
 
 #' Company Financial Ratios
@@ -122,8 +80,11 @@ fmp_cash_flow <- function(symbol, quarterly = FALSE) {
 #' @inherit fmp_profile return
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_ratios(my_stocks, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -145,8 +106,11 @@ fmp_ratios <- function(symbol, quarterly = FALSE) {
 #' @inherit fmp_profile return
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_enterprise_value(my_stocks, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -168,8 +132,11 @@ fmp_enterprise_value <- function(symbol, quarterly = FALSE) {
 #' @inherit fmp_profile return
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_key_metrics(my_stocks, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -191,8 +158,11 @@ fmp_key_metrics <- function(symbol, quarterly = FALSE) {
 #' @inherit fmp_profile return
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_financial_growth(my_stocks, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -214,8 +184,11 @@ fmp_financial_growth <- function(symbol, quarterly = FALSE) {
 #' @inherit fmp_profile return
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_rating(my_stocks, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -237,8 +210,11 @@ fmp_rating <- function(symbol) {
 #'        return current estimate. Default is `FALSE`
 #'
 #' @examples
+#'
+#' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
 #' d <- fmp_dcf(my_stocks, historical = TRUE, quarterly = TRUE)
+#' }
 #'
 #' @export
 #' @family `Company Summaries`
@@ -257,43 +233,14 @@ fmp_dcf <- function(symbol, historical = FALSE, quarterly = FALSE) {
   d
 }
 
-#' #' List Available Stock Symbols
-#' #'
-#' #' @return [tibble::tbl_df]
-#' #' @export
-#' #'
-#' #' @examples
-#' #' d <- fmp_list_stocks()
-#' fmp_list_stocks <- function() {
-#'   endpoint <- "stock"
-#'
-#'   request_urls <- build_request_urls('list', endpoint = endpoint)
-#'   d <- get_request_content(request_urls)
-#'
-#'   d
-#' }
 
-# fmp_earnings_calendar <- function(symbol = NULL) {
-#   endpoint <- "earning_calendar"
-#
-#   if (is.null(symbol)) {
-#     request_urls <- build_request_urls(symbol = NULL, endpoint = endpoint)
-#     d <- get_request_content(request_urls)
-#   }
-#   else {
-#     endpoint <- c("historical", endpoint)
-#     request_urls <- build_request_urls(symbol, endpoint = endpoint)
-#     d <- get_request_content(request_urls)
-#   }
-#
-#   d
-# }
-
-#' @rdname companyValuation
+#' Upcoming Earnings Calendar
 #'
 #' @export
 #' @examples
+#' \donttest{
 #' d <- fmp_earnings_calendar()
+#' }
 fmp_earnings_calendar <- function() {
   endpoint <- "earning_calendar"
 
@@ -303,12 +250,14 @@ fmp_earnings_calendar <- function() {
   d
 }
 
-#' @rdname companyValuation
+#' Company Historical Earnings
 #'
-#' @note Currently `fmp_earnings()` requirest increased API access
+#' @inheritParams fmp_income
+#' @inherit fmp_profile return
+#'
+#' @note Currently `fmp_earnings()` requires increased API access
 #'
 #' @export
-#' @examples
 fmp_earnings <- function(symbol) {
   endpoint <- c("historical", "earning_calendar")
 
@@ -319,6 +268,29 @@ fmp_earnings <- function(symbol) {
 }
 
 
-fmp_stock_price <- function() {}
+#' Company Market Capitalization
+#'
+#' @inheritParams fmp_profile
+#' @inherit fmp_profile return
+#' @param historical `logical`. If `TRUE` return daily historical values. If `FALSE`
+#'        return current estimate. Default is `FALSE`
+#'
+#' @examples
+#'
+#' \donttest{
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_market_cap(my_stocks, historical = TRUE)
+#' }
+#'
+#' @export
+#' @family `Company Summaries`
+fmp_market_cap <- function(symbol, historical = FALSE) {
+  endpoint <- "market-capitalization"
 
-fmp_list_indexes <- function() {}
+  if (historical) endpoint <- "historical-market-capitalization"
+
+  request_urls <- build_request_urls(symbol, endpoint = endpoint)
+  d <- get_request_content(request_urls, endpoint = endpoint, historical = historical)
+
+  d
+}

@@ -1,63 +1,81 @@
 destination: docs
 
 reference:
-  - title: Retrieve List of Available Securities
+  - title: Finding Securities
     desc: >
       Collection of functions for listing basic information on available securities and
       cryptocurrencies
     contents:
-      - fmp_list_stocks
-      - fmp_list_ciks
-      - fmp_list_nyse
-      - fmp_list_nasdaq
       - fmp_list_amex
-      - fmp_list_tsx
-      - fmp_list_euronext
-      - fmp_list_indexes
-      - fmp_list_etfs
-      - fmp_list_mutual_funds
+      - fmp_list_ciks
       - fmp_list_commodities
-      - fmp_list_forex
       - fmp_list_cryptos
-  - title: Retrieve Real-Time Quotes of Available Securities
+      - fmp_list_etfs
+      - fmp_list_euronext
+      - fmp_list_forex
+      - fmp_list_indexes
+      - fmp_list_mutual_funds
+      - fmp_list_nasdaq
+      - fmp_list_nyse
+      - fmp_list_stocks
+      - fmp_list_tsx
+      - fmp_screen_stocks
+  - title: Quoting Securities
     desc: >
       Collection of functions providing real-time quotes of various securities and
       cryptocurrencies
     contents:
       - fmp_quote
-      - fmp_quote_nyse
-      - fmp_quote_nasdaq
       - fmp_quote_amex
-      - fmp_quote_tsx
-      - fmp_quote_euronext
-      - fmp_quote_indexes
-      - fmp_quote_etfs
-      - fmp_quote_mutual_funds
       - fmp_quote_commodities
-      - fmp_quote_forex
       - fmp_quote_cryptos
-  - title: Company Summaries
+      - fmp_quote_etfs
+      - fmp_quote_euronext
+      - fmp_quote_forex
+      - fmp_quote_indexes
+      - fmp_quote_mutual_funds
+      - fmp_quote_nasdaq
+      - fmp_quote_nyse
+      - fmp_quote_tsx
+  - title: Company Information
     desc: >
       Collection of functions providing various overviews and summaries
       of public companies
     contents:
       - fmp_profile
-      - fmp_income
+      - fmp_13f
       - fmp_balance_sheet
       - fmp_cash_flow
-      - fmp_key_metrics
-      - fmp_financial_growth
-      - fmp_ratios
-      - fmp_enterprise_value
-      - fmp_rating
+      - fmp_income
+      - fmp_full_financial
       - fmp_dcf
-  - title: SEC Filing and Institutional Funds
+      - fmp_enterprise_value
+      - fmp_financial_growth
+      - fmp_key_metrics
+      - fmp_market_cap
+      - fmp_ratios
+      - fmp_earnings
+      - fmp_rating
+  - title: Security Information
     desc: >
-      Collection of functions providing information related to SEC Reported information
-      and Institutional investment funds
+      Collection of functions providing intra-day and daily price data and other
+      information
     contents:
+      - fmp_prices
+      - fmp_daily_prices
+      - fmp_splits
+      - fmp_dividends
+  - title: Market Information
+    desc: >
+      Collection of functions providing various market information
+    contents:
+      - fmp_market_actives
+      - fmp_market_gainers
+      - fmp_market_hours
+      - fmp_market_losers
+      - fmp_sector_performance
+      - fmp_earnings_calendar
       - fmp_sec_filings
-      - fmp_13f
   - title: API Utilities
     desc: >
       Utility functions for connecting to the FMP API

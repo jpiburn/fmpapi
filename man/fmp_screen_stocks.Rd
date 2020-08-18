@@ -79,6 +79,8 @@ Company Stock Screener
 }
 }
 \examples{
+
+\donttest{
 library(fmp)
 
 # small cap, high beta tech stocks
@@ -87,5 +89,6 @@ d <- fmp_screen_stocks(marketCapLowerThan = 1e9, betaMoreThan = 2, sector = 'Tec
 # mid cap healthcare stocks listed on the nasdaq
 d <- fmp_screen_stocks(marketCapMoreThan = 1e9, marketCapLowerThan = 1e10,
 sector = 'Healthcare', exchange = 'nasdaq')
+}
 
 }

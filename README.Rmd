@@ -51,32 +51,78 @@ fmp_api_key(api_key)
 readRenviron('~/.Renviron')
 ```
 
-## Company Valuation
-The Financial Modeling Prep Financial Data API, provides several useful enpoints for company valutation analysis.From general company overviews, using `fmp_profile()`
 
-```{r ex-profile}
-library(dplyr)
+## Company Information and Financials
+
+```{r company-info, message=FALSE, warning=FALSE}
 library(fmp)
+library(tidyverse)
 
-my_stocks <- c('AAPL', 'GE')
+my_stocks <- c("AAPL", "GE")
 
 d <- fmp_profile(my_stocks)
 
 glimpse(d)
 ```
 
-To more detailed analysis, such as cash flow and balance sheet statements, key metrics, and discounted cash flow value.
-```{r ex-detailed}
-library(dplyr)
-library(fmp)
 
-my_stocks <- c('AAPL', 'GE')
+## Discounted Cash Flow Valuation
+```{r company-dcf, message=FALSE, warning=FALSE}
 
-d_cash <- fmp_cash_flow(my_stocks)
-d_balance <- fmp_balance_sheet(my_stocks)
-d_metrics <- fmp_key_metrics(my_stocks)
-
-glimpse(d_metrics)
+fmp_dcf(my_stocks, historical = TRUE, quarterly = TRUE) %>%
+  ggplot(
+    aes(x = date, y = dcf, colour = symbol)
+    ) +
+  geom_line(size = 1) +
+  theme_minimal() +
+  labs(
+    title = "Historical Discounted Cash Flow Valuation",
+    y = "Discounted Cash Flow Value"
+  )
 ```
 
-## More documentation coming soon
+
+## Key Metrics
+```{r key-metrics}
+d <- fmp_key_metrics(my_stocks)
+
+glimpse(d)
+```
+
+## Balance Sheets
+```{r}
+d <- fmp_balance_sheet(my_stocks, quarterly = TRUE)
+
+glimpse(d)
+```
+
+
+## Form 13-F Statements
+```{r}
+berkshire_cik <- '0001067983'
+d <- fmp_13f(berkshire_cik)
+
+glimpse(d)
+```
+
+## Earnings Calendar
+```{r}
+d <- fmp_earnings_calendar()
+
+glimpse(d)
+```
+
+## SEC RSS Feed
+```{r}
+d <- fmp_sec_filings()
+
+glimpse(d)
+```
+
+## Quoting Cryptocurrencies
+```{r}
+d <- fmp_quote_cryptos()
+
+glimpse(d)
+```
+

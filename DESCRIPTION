@@ -1,22 +1,26 @@
 Package: fmp
 Type: Package
 Title: Access to the Financial Modeling Prep Financial Data API
-Version: 0.1.0.9000
-Author@R: person(
-            given  = "Jesse", 
-            family = "Piburn", 
-            email  = "jesse.piburn@gmail.com",
-            role   = c("aut", "cre")
-          )
+Version: 0.1.0
+Authors@R: 
+    c(person(given = "Jesse",
+             family = "Piburn",
+             role = c("aut", "cre"),
+             email = "piburnjo@ornl.gov",
+             comment = c(ORCID = "0000-0003-4967-7912")),
+      person(given = "UT-Battelle, LLC",
+             role = "cph"))
 Maintainer: Jesse Piburn <jesse.piburn@gmail.com>
 Description: simple and consistent interface to the Financial Modeling Prep Financial Data API
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
+    dplyr,
     glue,
     httr,
     jsonlite,
+    readr,
     tibble,
     janitor,
     purrr,
