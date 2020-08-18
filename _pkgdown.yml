@@ -1,5 +1,9 @@
 destination: docs
 
+authors:
+  Jesse Piburn:
+    href: https://twitter.com/jesseopiburn
+
 reference:
   - title: Finding Securities
     desc: >

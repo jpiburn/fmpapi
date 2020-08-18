@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Company Stock Screener — fmp_screen_stocks • fmp</title>
+<title>Company Stock Screener — fmp_screen_stocks • fmpapi</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -74,8 +74,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">fmp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <a class="navbar-link" href="../index.html">fmpapi</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -93,7 +93,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jpiburn/fmp">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -108,7 +113,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Company Stock Screener</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/jpiburn/fmp/blob/master/R/stock-screener.R'><code>R/stock-screener.R</code></a></small>
     <div class="hidden name"><code>fmp_screen_stocks.Rd</code></div>
     </div>
 
@@ -220,7 +225,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># \donttest{</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>fmp</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>fmpapi</span>)
 
 <span class='co'># small cap, high beta tech stocks</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_screen_stocks</span>(<span class='kw'>marketCapLowerThan</span> <span class='kw'>=</span> <span class='fl'>1e9</span>, <span class='kw'>betaMoreThan</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>sector</span> <span class='kw'>=</span> <span class='st'>'Technology'</span>)
@@ -248,7 +253,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Jesse Piburn.</p>
+  <p>Developed by <a href='https://twitter.com/jesseopiburn'>Jesse Piburn</a>.</p>
 </div>
 
 <div class="pkgdown">

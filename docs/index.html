@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Access to the Financial Modeling Prep Financial Data API • fmp</title>
+<title>Access to the Financial Modeling Prep Financial Data API • fmpapi</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Access to the Financial Modeling Prep Financial Data API">
-<meta property="og:description" content="simple and consistent interface to the Financial Modeling Prep Financial Data API">
+<meta property="og:description" content="Simple and consistent interface to the Financial Modeling Prep Financial Data API.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -37,8 +37,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">fmp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <a class="navbar-link" href="index.html">fmpapi</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -54,7 +54,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/jpiburn/fmp">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -66,9 +73,9 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="section level1">
+<div id="fmpapi-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#fmp-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="anchor"></a>fmp: An R package for interfacing with the Financial Modeling Prep API <img src="reference/figures/logo.png" align="right" height="202.5">
+<a href="#fmpapi-an-r-package-for-interfacing-with-the-financial-modeling-prep-api-" class="anchor"></a>fmpapi: An R package for interfacing with the Financial Modeling Prep API <img src="reference/figures/logo.png" align="right" height="202.5">
 </h1></div>
 <!-- badges: start -->
 
@@ -82,14 +89,14 @@
 <!-- install.packages("fmp") -->
 <!-- ``` -->
 <p>You can install the latest development version of fmp from <a href="https://github.com">Github</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'jpiburn/fmp'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'jpiburn/fmpapi'</span>)</span></code></pre></div>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting Started</h2>
 <p>Before getting started with <code>fmp</code> you first must obtain an API key for the Financial Modeling Prep Financial Data API. For details, see <a href="https://financialmodelingprep.com/developer/docs/pricing/">here</a>.</p>
 <p>Once you sign up, you can add your API key to your <code>.Renviron</code> file by using <code><a href="reference/fmp_api_key.html">fmp_api_key()</a></code>. This will add a <code>FMP_API_KEY</code> entry to your <code>.Renviron</code> file so it will automatically be available in future sessions. When first installed however, you will need to reload your .Renviron file by either restarting R or running <code><a href="https://rdrr.io/r/base/readRenviron.html">readRenviron('~/.Renviron')</a></code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fmp)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fmpapi)</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>api_key &lt;-<span class="st"> 'my_api_key'</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="kw"><a href="reference/fmp_api_key.html">fmp_api_key</a></span>(api_key)</span>
@@ -97,137 +104,279 @@
 <span id="cb2-6"><a href="#cb2-6"></a><span class="co"># reload</span></span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="kw"><a href="https://rdrr.io/r/base/readRenviron.html">readRenviron</a></span>(<span class="st">'~/.Renviron'</span>)</span></code></pre></div>
 </div>
-<div id="company-valuation" class="section level2">
+<div id="company-information-and-financials" class="section level2">
 <h2 class="hasAnchor">
-<a href="#company-valuation" class="anchor"></a>Company Valuation</h2>
-<p>The Financial Modeling Prep Financial Data API, provides several useful enpoints for company valutation analysis.From general company overviews, using <code><a href="reference/fmp_profile.html">fmp_profile()</a></code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; Warning: package 'dplyr' was built under R version 3.6.3</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; </span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; </span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; </span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fmp)</span>
-<span id="cb3-12"><a href="#cb3-12"></a></span>
-<span id="cb3-13"><a href="#cb3-13"></a>my_stocks &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'AAPL'</span>, <span class="st">'GE'</span>)</span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_profile.html">fmp_profile</a></span>(my_stocks)</span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="kw">glimpse</span>(d)</span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Rows: 2</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; Columns: 26</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; $ symbol              &lt;chr&gt; "AAPL", "GE"</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 373.01, 6.89</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; $ beta                &lt;dbl&gt; 1.228499, 1.177065</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; $ vol_avg             &lt;dbl&gt; 34817255, 104920242</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.616748e+12, 6.026745e+10</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; $ last_div            &lt;dbl&gt; 3.13, 0.04</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; $ range               &lt;chr&gt; "192.58-399.82", "5.48-13.26"</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; -6.23, 0.18</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; $ company_name        &lt;chr&gt; "Apple Inc.", "General Electric Company"</span></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; $ exchange            &lt;chr&gt; "Nasdaq Global Select", "New York Stock Exchange"</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt; $ exchange_short_name &lt;chr&gt; "NASDAQ", "NYSE"</span></span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt; $ industry            &lt;chr&gt; "Consumer Electronics", "Specialty Industrial M...</span></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt; $ website             &lt;chr&gt; "http://www.apple.com", "http://www.ge.com"</span></span>
-<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#&gt; $ description         &lt;chr&gt; "Apple Inc. designs, manufactures, and markets ...</span></span>
-<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#&gt; $ ceo                 &lt;chr&gt; "Mr. Timothy D. Cook", "Mr. H. Lawrence Culp Jr."</span></span>
-<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#&gt; $ sector              &lt;chr&gt; "Technology", "Industrials"</span></span>
-<span id="cb3-36"><a href="#cb3-36"></a><span class="co">#&gt; $ country             &lt;chr&gt; "United States", "United States"</span></span>
-<span id="cb3-37"><a href="#cb3-37"></a><span class="co">#&gt; $ full_time_employees &lt;dbl&gt; 137000, 205000</span></span>
-<span id="cb3-38"><a href="#cb3-38"></a><span class="co">#&gt; $ phone               &lt;chr&gt; "408-996-1010", "617-443-3000"</span></span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="co">#&gt; $ address             &lt;chr&gt; "One Apple Park Way", "5 Necco Street"</span></span>
-<span id="cb3-40"><a href="#cb3-40"></a><span class="co">#&gt; $ city                &lt;chr&gt; "One Apple Park Way", "5 Necco Street"</span></span>
-<span id="cb3-41"><a href="#cb3-41"></a><span class="co">#&gt; $ state               &lt;chr&gt; "CA", "MA"</span></span>
-<span id="cb3-42"><a href="#cb3-42"></a><span class="co">#&gt; $ zip                 &lt;chr&gt; "95014", "02210"</span></span>
-<span id="cb3-43"><a href="#cb3-43"></a><span class="co">#&gt; $ dcf_diff            &lt;dbl&gt; 89.92, 21.63</span></span>
-<span id="cb3-44"><a href="#cb3-44"></a><span class="co">#&gt; $ dcf                 &lt;dbl&gt; 297.11, 30.90</span></span>
-<span id="cb3-45"><a href="#cb3-45"></a><span class="co">#&gt; $ image               &lt;chr&gt; "https://financialmodelingprep.com/image-stock/...</span></span></code></pre></div>
-<p>To more detailed analysis, such as cash flow and balance sheet statements, key metrics, and discounted cash flow value.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fmp)</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>my_stocks &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'AAPL'</span>, <span class="st">'GE'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>d_cash &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_cash_flow.html">fmp_cash_flow</a></span>(my_stocks)</span>
-<span id="cb4-7"><a href="#cb4-7"></a>d_balance &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_balance_sheet.html">fmp_balance_sheet</a></span>(my_stocks)</span>
-<span id="cb4-8"><a href="#cb4-8"></a>d_metrics &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_key_metrics.html">fmp_key_metrics</a></span>(my_stocks)</span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="kw">glimpse</span>(d_metrics)</span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">#&gt; Rows: 37</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; Columns: 59</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co">#&gt; $ symbol                                      &lt;chr&gt; "AAPL", "AAPL", "AAPL",...</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co">#&gt; $ date                                        &lt;date&gt; 2019-09-28, 2018-09-29...</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt; $ revenue_per_share                           &lt;dbl&gt; 56.34113, 53.59733, 43....</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co">#&gt; $ net_income_per_share                        &lt;dbl&gt; 11.96578309, 12.0134149...</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="co">#&gt; $ operating_cash_flow_per_share               &lt;dbl&gt; 15.02674197, 15.6262581...</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co">#&gt; $ free_cash_flow_per_share                    &lt;dbl&gt; 12.7540314, 12.9396815,...</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt; $ cash_per_share                              &lt;dbl&gt; 10.5772533, 5.2292691, ...</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co">#&gt; $ book_value_per_share                        &lt;dbl&gt; 19.595334, 21.622371, 2...</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt; $ tangible_book_value_per_share               &lt;dbl&gt; 73.30623, 73.80367, 70....</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="co">#&gt; $ shareholders_equity_per_share               &lt;dbl&gt; 19.595334, 21.622371, 2...</span></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co">#&gt; $ interest_debt_per_share                     &lt;dbl&gt; 22.8771757, 21.3422712,...</span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="co">#&gt; $ market_cap                                  &lt;dbl&gt; 1.150072e+12, 1.051729e...</span></span>
-<span id="cb4-25"><a href="#cb4-25"></a><span class="co">#&gt; $ enterprise_value                            &lt;dbl&gt; 1203294557700, 11283352...</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a><span class="co">#&gt; $ pe_ratio                                    &lt;dbl&gt; 20.813515, 17.666917, 1...</span></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="co">#&gt; $ price_to_sales_ratio                        &lt;dbl&gt; 4.42039388, 3.95989840,...</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="co">#&gt; $ pocfratio                                   &lt;dbl&gt; 16.573786, 13.582266, 1...</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="co">#&gt; $ pfcf_ratio                                  &lt;dbl&gt; 19.527159, 16.402258, 1...</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="co">#&gt; $ pb_ratio                                    &lt;dbl&gt; 12.70965827, 9.81575979...</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a><span class="co">#&gt; $ ptb_ratio                                   &lt;dbl&gt; 12.70965827, 9.81575979...</span></span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="co">#&gt; $ ev_to_sales                                 &lt;dbl&gt; 4.624960825, 4.24833003...</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="co">#&gt; $ enterprise_value_over_ebitda                &lt;dbl&gt; 15.73407113, 13.7936604...</span></span>
-<span id="cb4-34"><a href="#cb4-34"></a><span class="co">#&gt; $ ev_to_operating_cash_flow                   &lt;dbl&gt; 1.734079e+01, 1.457157e...</span></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="co">#&gt; $ ev_to_free_cash_flow                        &lt;dbl&gt; 20.43083669, 17.5969684...</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">#&gt; $ earnings_yield                              &lt;dbl&gt; 0.04804571, 0.05660297,...</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="co">#&gt; $ free_cash_flow_yield                        &lt;dbl&gt; 0.05121073, 0.06096721,...</span></span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="co">#&gt; $ debt_to_equity                              &lt;dbl&gt; 2.7410043, 2.4133014, 1...</span></span>
-<span id="cb4-39"><a href="#cb4-39"></a><span class="co">#&gt; $ debt_to_assets                              &lt;dbl&gt; 0.7326921, 0.7070285, 0...</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a><span class="co">#&gt; $ net_debt_to_ebitda                          &lt;dbl&gt; 0.69593473, 0.93649222,...</span></span>
-<span id="cb4-41"><a href="#cb4-41"></a><span class="co">#&gt; $ current_ratio                               &lt;dbl&gt; 1.540126, 1.123843, 1.2...</span></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="co">#&gt; $ interest_coverage                           &lt;dbl&gt; 18.382830, 22.500926, 2...</span></span>
-<span id="cb4-43"><a href="#cb4-43"></a><span class="co">#&gt; $ income_quality                              &lt;dbl&gt; 1.25580932, 1.30073407,...</span></span>
-<span id="cb4-44"><a href="#cb4-44"></a><span class="co">#&gt; $ dividend_yield                              &lt;dbl&gt; 0.012276627, 0.01303757...</span></span>
-<span id="cb4-45"><a href="#cb4-45"></a><span class="co">#&gt; $ payout_ratio                                &lt;dbl&gt; 0.25551976, 0.23033378,...</span></span>
-<span id="cb4-46"><a href="#cb4-46"></a><span class="co">#&gt; $ sales_general_and_administrative_to_revenue &lt;dbl&gt; 0.0000000, 0.0000000, 0...</span></span>
-<span id="cb4-47"><a href="#cb4-47"></a><span class="co">#&gt; $ research_and_ddevelopement_to_revenue       &lt;dbl&gt; 0.06233136, 0.05360041,...</span></span>
-<span id="cb4-48"><a href="#cb4-48"></a><span class="co">#&gt; $ intangibles_to_total_assets                 &lt;dbl&gt; 0.000000000, 0.00000000...</span></span>
-<span id="cb4-49"><a href="#cb4-49"></a><span class="co">#&gt; $ capex_to_operating_cash_flow                &lt;dbl&gt; 6.6118152, 5.8164200, 4...</span></span>
-<span id="cb4-50"><a href="#cb4-50"></a><span class="co">#&gt; $ capex_to_revenue                            &lt;dbl&gt; 24.79028, 19.95005, 17....</span></span>
-<span id="cb4-51"><a href="#cb4-51"></a><span class="co">#&gt; $ capex_to_depreciation                       &lt;dbl&gt; 1.1955217, 0.8189739, 0...</span></span>
-<span id="cb4-52"><a href="#cb4-52"></a><span class="co">#&gt; $ stock_based_compensation_to_revenue         &lt;dbl&gt; 2.332285e-02, 2.010580e...</span></span>
-<span id="cb4-53"><a href="#cb4-53"></a><span class="co">#&gt; $ graham_number                               &lt;dbl&gt; 72.633698, 76.449765, 7...</span></span>
-<span id="cb4-54"><a href="#cb4-54"></a><span class="co">#&gt; $ roic                                        &lt;dbl&gt; 0.282377855, 0.29294901...</span></span>
-<span id="cb4-55"><a href="#cb4-55"></a><span class="co">#&gt; $ return_on_tangible_assets                   &lt;dbl&gt; 0.163230098, 0.16277530...</span></span>
-<span id="cb4-56"><a href="#cb4-56"></a><span class="co">#&gt; $ graham_net_net                              &lt;dbl&gt; -27.7670224, -34.893308...</span></span>
-<span id="cb4-57"><a href="#cb4-57"></a><span class="co">#&gt; $ working_capital                             &lt;dbl&gt; 5.7101e+10, 1.4473e+10,...</span></span>
-<span id="cb4-58"><a href="#cb4-58"></a><span class="co">#&gt; $ tangible_asset_value                        &lt;dbl&gt; NA, NA, 126032000000, 1...</span></span>
-<span id="cb4-59"><a href="#cb4-59"></a><span class="co">#&gt; $ net_current_asset_value                     &lt;dbl&gt; -8.52090e+10, -1.27239e...</span></span>
-<span id="cb4-60"><a href="#cb4-60"></a><span class="co">#&gt; $ invested_capital                            &lt;dbl&gt; NA, NA, NA, NA, NA, NA,...</span></span>
-<span id="cb4-61"><a href="#cb4-61"></a><span class="co">#&gt; $ average_receivables                         &lt;dbl&gt; 23056000000, 2318600000...</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a><span class="co">#&gt; $ average_payables                            &lt;dbl&gt; 51062000000, 5588800000...</span></span>
-<span id="cb4-63"><a href="#cb4-63"></a><span class="co">#&gt; $ average_inventory                           &lt;dbl&gt; 4031000000, 3956000000,...</span></span>
-<span id="cb4-64"><a href="#cb4-64"></a><span class="co">#&gt; $ days_sales_outstanding                      &lt;dbl&gt; 32.16305, 31.86389, 28....</span></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="co">#&gt; $ days_payables_outstanding                   &lt;dbl&gt; 104.31408, 124.57021, 1...</span></span>
-<span id="cb4-66"><a href="#cb4-66"></a><span class="co">#&gt; $ days_of_inventory_on_hand                   &lt;dbl&gt; 9.263639, 8.817631, 12....</span></span>
-<span id="cb4-67"><a href="#cb4-67"></a><span class="co">#&gt; $ receivables_turnover                        &lt;dbl&gt; 11.348425, 11.454973, 1...</span></span>
-<span id="cb4-68"><a href="#cb4-68"></a><span class="co">#&gt; $ payables_turnover                           &lt;dbl&gt; 3.499048, 2.930074, 2.8...</span></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="co">#&gt; $ inventory_turnover                          &lt;dbl&gt; 39.401364, 41.394338, 2...</span></span>
-<span id="cb4-70"><a href="#cb4-70"></a><span class="co">#&gt; $ roe                                         &lt;dbl&gt; 0.610644505, 0.55560118...</span></span>
-<span id="cb4-71"><a href="#cb4-71"></a><span class="co">#&gt; $ capex_per_share                             &lt;dbl&gt; 2.2727105, 2.6865766, 2...</span></span></code></pre></div>
+<a href="#company-information-and-financials" class="anchor"></a>Company Information and Financials</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fmpapi)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>my_stocks &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"GE"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_profile.html">fmp_profile</a></span>(my_stocks)</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; Rows: 2</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; Columns: 26</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; $ symbol              &lt;chr&gt; "AAPL", "GE"</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 462.565, 6.425</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; $ beta                &lt;dbl&gt; 1.228499, 1.177065</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; $ vol_avg             &lt;dbl&gt; 36667309, 94472273</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.977757e+12, 5.623989e+10</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; $ last_div            &lt;dbl&gt; 3.18, 0.04</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; $ range               &lt;chr&gt; "201.0-464.35", "5.48-13.26"</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; 4.135, -0.045</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; $ company_name        &lt;chr&gt; "Apple Inc.", "General Electric Company"</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; $ exchange            &lt;chr&gt; "Nasdaq Global Select", "New York Stock Exchange"</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; $ exchange_short_name &lt;chr&gt; "NASDAQ", "NYSE"</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; $ industry            &lt;chr&gt; "Consumer Electronics", "Specialty Industrial M...</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; $ website             &lt;chr&gt; "http://www.apple.com", "http://www.ge.com"</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; $ description         &lt;chr&gt; "Apple Inc. designs, manufactures, and markets ...</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; $ ceo                 &lt;chr&gt; "Mr. Timothy D. Cook", "Mr. H. Lawrence Culp Jr."</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; $ sector              &lt;chr&gt; "Technology", "Industrials"</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; $ country             &lt;chr&gt; "United States", "United States"</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; $ full_time_employees &lt;dbl&gt; 137000, 205000</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; $ phone               &lt;chr&gt; "408-996-1010", "617-443-3000"</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt; $ address             &lt;chr&gt; "One Apple Park Way", "5 Necco Street"</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt; $ city                &lt;chr&gt; "One Apple Park Way", "5 Necco Street"</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt; $ state               &lt;chr&gt; "CA", "MA"</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#&gt; $ zip                 &lt;chr&gt; "95014", "02210"</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#&gt; $ dcf_diff            &lt;dbl&gt; 89.92, 21.63</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#&gt; $ dcf                 &lt;dbl&gt; 297.11, 30.90</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="co">#&gt; $ image               &lt;chr&gt; "https://financialmodelingprep.com/image-stock/...</span></span></code></pre></div>
 </div>
-<div id="more-documentation-coming-soon" class="section level2">
+<div id="discounted-cash-flow-valuation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#more-documentation-coming-soon" class="anchor"></a>More documentation coming soon</h2>
+<a href="#discounted-cash-flow-valuation" class="anchor"></a>Discounted Cash Flow Valuation</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="reference/fmp_dcf.html">fmp_dcf</a></span>(my_stocks, <span class="dt">historical =</span> <span class="ot">TRUE</span>, <span class="dt">quarterly =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span><span class="kw">ggplot</span>(</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> dcf, <span class="dt">colour =</span> symbol)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    ) <span class="op">+</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="dt">title =</span> <span class="st">"Historical Discounted Cash Flow Valuation"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="dt">y =</span> <span class="st">"Discounted Cash Flow Value"</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  )</span></code></pre></div>
+<p><img src="reference/figures/README-company-dcf-1.png" width="100%"></p>
+</div>
+<div id="key-metrics" class="section level2">
+<h2 class="hasAnchor">
+<a href="#key-metrics" class="anchor"></a>Key Metrics</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_key_metrics.html">fmp_key_metrics</a></span>(my_stocks)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; Rows: 73</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; Columns: 59</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; $ symbol                                      &lt;chr&gt; "AAPL", "AAPL", "AAPL",...</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; $ date                                        &lt;date&gt; 2019-09-28, 2018-09-29...</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; $ revenue_per_share                           &lt;dbl&gt; 55.964480, 53.117842, 4...</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; $ net_income_per_share                        &lt;dbl&gt; 11.885789216, 11.905940...</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; $ operating_cash_flow_per_share               &lt;dbl&gt; 14.92628492, 15.4864624...</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; $ free_cash_flow_per_share                    &lt;dbl&gt; 12.668767946, 12.823920...</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt; $ cash_per_share                              &lt;dbl&gt; 10.5065421, 5.1824870, ...</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt; $ book_value_per_share                        &lt;dbl&gt; 19.4643350, 21.4289328,...</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt; $ tangible_book_value_per_share               &lt;dbl&gt; 72.816162, 73.143405, 6...</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt; $ shareholders_equity_per_share               &lt;dbl&gt; 19.4643350, 21.4289328,...</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt; $ interest_debt_per_share                     &lt;dbl&gt; 21.80359151, 21.7873250...</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="co">#&gt; $ market_cap                                  &lt;dbl&gt; 1.157812e+12, 1.061223e...</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="co">#&gt; $ enterprise_value                            &lt;dbl&gt; 1.206755e+12, 1.141009e...</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co">#&gt; $ pe_ratio                                    &lt;dbl&gt; 20.953594, 17.826395, 1...</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co">#&gt; $ price_to_sales_ratio                        &lt;dbl&gt; 4.4501441, 3.9956442, 3...</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="co">#&gt; $ pocfratio                                   &lt;dbl&gt; 16.685331, 13.704873, 1...</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="co">#&gt; $ pfcf_ratio                                  &lt;dbl&gt; 19.658581, 16.550321, 1...</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#&gt; $ pb_ratio                                    &lt;dbl&gt; 12.795197, 9.904366, 6....</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="co">#&gt; $ ptb_ratio                                   &lt;dbl&gt; 12.795197, 9.904366, 6....</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co">#&gt; $ ev_to_sales                                 &lt;dbl&gt; 4.6382605, 4.2960490, 4...</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co">#&gt; $ enterprise_value_over_ebitda                &lt;dbl&gt; 14.741690, 13.108117, 1...</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co">#&gt; $ ev_to_operating_cash_flow                   &lt;dbl&gt; 17.390653, 14.735247, 1...</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="co">#&gt; $ ev_to_free_cash_flow                        &lt;dbl&gt; 20.489588, 17.794625, 1...</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="co">#&gt; $ earnings_yield                              &lt;dbl&gt; 0.047724510, 0.05609659...</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="co">#&gt; $ free_cash_flow_yield                        &lt;dbl&gt; 0.050868372, 0.06042178...</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="co">#&gt; $ debt_to_equity                              &lt;dbl&gt; 2.7410043, 2.4133014, 1...</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="co">#&gt; $ debt_to_assets                              &lt;dbl&gt; 0.7326921, 0.7070285, 0...</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="co">#&gt; $ net_debt_to_ebitda                          &lt;dbl&gt; 0.59788664, 0.91659582,...</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">#&gt; $ current_ratio                               &lt;dbl&gt; 1.540126, 1.132926, 1.2...</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="co">#&gt; $ interest_coverage                           &lt;dbl&gt; 18.38283, 22.50093, 27....</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co">#&gt; $ income_quality                              &lt;dbl&gt; 1.2558093, 1.3007341, 1...</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co">#&gt; $ dividend_yield                              &lt;dbl&gt; 0.012194555, 0.01292094...</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="co">#&gt; $ payout_ratio                                &lt;dbl&gt; 0.25551976, 0.23033378,...</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="co">#&gt; $ sales_general_and_administrative_to_revenue &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0,...</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="co">#&gt; $ research_and_ddevelopement_to_revenue       &lt;dbl&gt; 0.06233136, 0.05360041,...</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co">#&gt; $ intangibles_to_total_assets                 &lt;dbl&gt; 0.00000000, 0.00000000,...</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="co">#&gt; $ capex_to_operating_cash_flow                &lt;dbl&gt; -6.6118152, -5.8164200,...</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="co">#&gt; $ capex_to_revenue                            &lt;dbl&gt; -24.79028, -19.95005, -...</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co">#&gt; $ capex_to_depreciation                       &lt;dbl&gt; -1.1955217, -0.8189739,...</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="co">#&gt; $ stock_based_compensation_to_revenue         &lt;dbl&gt; 0.023322853, 0.02010580...</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="co">#&gt; $ graham_number                               &lt;dbl&gt; 72.1481262, 75.7658298,...</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co">#&gt; $ roic                                        &lt;dbl&gt; 0.28237786, 0.29185015,...</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="co">#&gt; $ return_on_tangible_assets                   &lt;dbl&gt; 0.163230098, 0.16277530...</span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="co">#&gt; $ graham_net_net                              &lt;dbl&gt; -27.58139376, -34.58114...</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co">#&gt; $ working_capital                             &lt;dbl&gt; 5.7101e+10, 1.5410e+10,...</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="co">#&gt; $ tangible_asset_value                        &lt;dbl&gt; NA, NA, 1.26032e+11, 1....</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="co">#&gt; $ net_current_asset_value                     &lt;dbl&gt; -8.52090e+10, -1.27239e...</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="co">#&gt; $ invested_capital                            &lt;dbl&gt; NA, NA, NA, NA, NA, NA,...</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="co">#&gt; $ average_receivables                         &lt;dbl&gt; 23056000000, 2318600000...</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a><span class="co">#&gt; $ average_payables                            &lt;dbl&gt; 51062000000, 5588800000...</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="co">#&gt; $ average_inventory                           &lt;dbl&gt; 4031000000, 3956000000,...</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="co">#&gt; $ days_sales_outstanding                      &lt;dbl&gt; 32.16305, 31.86389, 28....</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="co">#&gt; $ days_payables_outstanding                   &lt;dbl&gt; 104.31408, 124.57021, 1...</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="co">#&gt; $ days_of_inventory_on_hand                   &lt;dbl&gt; 9.263639, 8.817631, 12....</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="co">#&gt; $ receivables_turnover                        &lt;dbl&gt; 11.348425, 11.454973, 1...</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="co">#&gt; $ payables_turnover                           &lt;dbl&gt; 3.499048, 2.930074, 3.1...</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="co">#&gt; $ inventory_turnover                          &lt;dbl&gt; 39.401364, 41.394338, 2...</span></span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="co">#&gt; $ roe                                         &lt;dbl&gt; 0.610644505, 0.55560118...</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a><span class="co">#&gt; $ capex_per_share                             &lt;dbl&gt; -2.257516972, -2.662541...</span></span></code></pre></div>
+</div>
+<div id="balance-sheets" class="section level2">
+<h2 class="hasAnchor">
+<a href="#balance-sheets" class="anchor"></a>Balance Sheets</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_balance_sheet.html">fmp_balance_sheet</a></span>(my_stocks, <span class="dt">quarterly =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; Rows: 252</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; Columns: 46</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; $ date                                        &lt;date&gt; 2020-06-27, 2020-03-28...</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; $ symbol                                      &lt;chr&gt; "AAPL", "AAPL", "AAPL",...</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; $ filling_date                                &lt;dttm&gt; 2020-07-31, 2020-05-01...</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; $ accepted_date                               &lt;dttm&gt; 2020-07-30 19:29:09, 2...</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; $ period                                      &lt;chr&gt; "Q3", "Q2", "Q1", "Q4",...</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; $ cash_and_cash_equivalents                   &lt;dbl&gt; 3.3383e+10, 4.0174e+10,...</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt; $ short_term_investments                      &lt;dbl&gt; 5.9642e+10, 5.3877e+10,...</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt; $ cash_and_short_term_investments             &lt;dbl&gt; 9.30250e+10, 9.40510e+1...</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#&gt; $ net_receivables                             &lt;dbl&gt; 1.7882e+10, 1.5722e+10,...</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#&gt; $ inventory                                   &lt;dbl&gt; 3.978e+09, 3.334e+09, 4...</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#&gt; $ other_current_assets                        &lt;dbl&gt; 1.0987e+10, 1.5691e+10,...</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#&gt; $ total_current_assets                        &lt;dbl&gt; 1.40065e+11, 1.43753e+1...</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#&gt; $ property_plant_equipment_net                &lt;dbl&gt; 4.3851e+10, 4.3986e+10,...</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#&gt; $ goodwill                                    &lt;dbl&gt; 0.000e+00, 0.000e+00, 0...</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">#&gt; $ intangible_assets                           &lt;dbl&gt; 0.000e+00, 0.000e+00, 0...</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#&gt; $ goodwill_and_intangible_assets              &lt;dbl&gt; 0.000e+00, 0.000e+00, 0...</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="co">#&gt; $ long_term_investments                       &lt;dbl&gt; 1.00592e+11, 9.87930e+1...</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">#&gt; $ tax_assets                                  &lt;dbl&gt; 0.0000e+00, 0.0000e+00,...</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">#&gt; $ other_non_current_assets                    &lt;dbl&gt; 3.2836e+10, 3.3868e+10,...</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">#&gt; $ total_non_current_assets                    &lt;dbl&gt; 1.77279e+11, 1.76647e+1...</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">#&gt; $ other_assets                                &lt;dbl&gt; 4.3823e+10, 4.9559e+10,...</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="co">#&gt; $ total_assets                                &lt;dbl&gt; 3.17344e+11, 3.20400e+1...</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co">#&gt; $ account_payables                            &lt;dbl&gt; 3.5325e+10, 3.2421e+10,...</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="co">#&gt; $ short_term_debt                             &lt;dbl&gt; 1.1166e+10, 1.0029e+10,...</span></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="co">#&gt; $ tax_payables                                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0,...</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="co">#&gt; $ deferred_revenue                            &lt;dbl&gt; 6.313e+09, 5.928e+09, 5...</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="co">#&gt; $ other_current_liabilities                   &lt;dbl&gt; 3.9945e+10, 4.2048e+10,...</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="co">#&gt; $ total_current_liabilities                   &lt;dbl&gt; 9.53180e+10, 9.60940e+1...</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co">#&gt; $ long_term_debt                              &lt;dbl&gt; 9.46780e+10, 8.97150e+1...</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="co">#&gt; $ deferred_revenue_non_current                &lt;dbl&gt; 0.000e+00, 0.000e+00, 0...</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="co">#&gt; $ deferred_tax_liabilities_non_current        &lt;dbl&gt; 0.000e+00, 0.000e+00, 0...</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="co">#&gt; $ other_non_current_liabilities               &lt;dbl&gt; 5.5066e+10, 5.6166e+10,...</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a><span class="co">#&gt; $ total_non_current_liabilities               &lt;dbl&gt; 1.49744e+11, 1.45881e+1...</span></span>
+<span id="cb6-39"><a href="#cb6-39"></a><span class="co">#&gt; $ other_liabilities                           &lt;dbl&gt; 5.5066e+10, 5.6166e+10,...</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a><span class="co">#&gt; $ total_liabilities                           &lt;dbl&gt; 2.45062e+11, 2.41975e+1...</span></span>
+<span id="cb6-41"><a href="#cb6-41"></a><span class="co">#&gt; $ common_stock                                &lt;dbl&gt; 4.8696e+10, 4.8032e+10,...</span></span>
+<span id="cb6-42"><a href="#cb6-42"></a><span class="co">#&gt; $ retained_earnings                           &lt;dbl&gt; 2.41360e+10, 3.31820e+1...</span></span>
+<span id="cb6-43"><a href="#cb6-43"></a><span class="co">#&gt; $ accumulated_other_comprehensive_income_loss &lt;dbl&gt; -6.5230e+10, -6.2854e+1...</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a><span class="co">#&gt; $ othertotal_stockholders_equity              &lt;dbl&gt; -2.163e+09, -1.315e+09,...</span></span>
+<span id="cb6-45"><a href="#cb6-45"></a><span class="co">#&gt; $ total_stockholders_equity                   &lt;dbl&gt; 7.22820e+10, 7.84250e+1...</span></span>
+<span id="cb6-46"><a href="#cb6-46"></a><span class="co">#&gt; $ total_liabilities_and_stockholders_equity   &lt;dbl&gt; 3.17344e+11, 3.20400e+1...</span></span>
+<span id="cb6-47"><a href="#cb6-47"></a><span class="co">#&gt; $ total_investments                           &lt;dbl&gt; 1.60234e+11, 1.52670e+1...</span></span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="co">#&gt; $ total_debt                                  &lt;dbl&gt; 1.13373e+11, 1.10155e+1...</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="co">#&gt; $ net_debt                                    &lt;dbl&gt; 79990000000, 6998100000...</span></span>
+<span id="cb6-50"><a href="#cb6-50"></a><span class="co">#&gt; $ link                                        &lt;chr&gt; "https://www.sec.gov/Ar...</span></span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="co">#&gt; $ final_link                                  &lt;chr&gt; "https://www.sec.gov/Ar...</span></span></code></pre></div>
+</div>
+<div id="form-13-f-statements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#form-13-f-statements" class="anchor"></a>Form 13-F Statements</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>berkshire_cik &lt;-<span class="st"> '0001067983'</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_13f.html">fmp_13f</a></span>(berkshire_cik)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; Rows: 50</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; Columns: 12</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; $ date           &lt;date&gt; 2020-03-31, 2020-03-31, 2020-03-31, 2020-03-31, 202...</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; $ filling_date   &lt;date&gt; 2020-05-15, 2020-05-15, 2020-05-15, 2020-05-15, 202...</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; $ accepted_date  &lt;dttm&gt; 2020-05-15 16:06:46, 2020-05-15 16:06:46, 2020-05-1...</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; $ cik            &lt;chr&gt; "0001067983", "0001067983", "0001067983", "000106798...</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; $ cusip          &lt;chr&gt; "57636Q104", "609207105", "615369105", "674599105", ...</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; $ tickercusip    &lt;chr&gt; "MA", "MDLZ", "MCO", "OXY", "PNC", "PG", "RH", "QSR"...</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; $ name_of_issuer &lt;chr&gt; "MASTERCARD INC", "MONDELEZ INTL INC", "MOODYS CORP"...</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; $ shares         &lt;dbl&gt; 4934756, 578000, 24669778, 18933054, 9197984, 315400...</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt; $ title_of_class &lt;chr&gt; "CL A", "CL A", "COM", "COM", "COM", "COM", "COM", "...</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt; $ value          &lt;dbl&gt; 1192040000, 28946000, 5217658000, 219245000, 8804310...</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt; $ link           &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1067983/000...</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt; $ final_link     &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1067983/000...</span></span></code></pre></div>
+</div>
+<div id="earnings-calendar" class="section level2">
+<h2 class="hasAnchor">
+<a href="#earnings-calendar" class="anchor"></a>Earnings Calendar</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_earnings_calendar.html">fmp_earnings_calendar</a></span>()</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; Rows: 2,861</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; Columns: 3</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; $ symbol        &lt;chr&gt; "NOVA", "CHNG", "DGSE", "AMCR", "WMT", "SE", "HMI", "...</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt; $ date          &lt;dttm&gt; 2020-08-18 00:00:00, 2020-08-18 00:00:00, 2020-08-18...</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; $ eps_estimated &lt;dbl&gt; -0.19, 0.00, 0.00, 0.19, 1.25, -0.42, 0.05, 0.00, -0....</span></span></code></pre></div>
+</div>
+<div id="sec-rss-feed" class="section level2">
+<h2 class="hasAnchor">
+<a href="#sec-rss-feed" class="anchor"></a>SEC RSS Feed</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmp_sec_filings.html">fmp_sec_filings</a></span>()</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; Rows: 1,000</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; Columns: 6</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; $ title     &lt;chr&gt; "13F-HR - Tri-Star Advisors Inc. (0001821289) (Filer)", "...</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; $ date      &lt;dttm&gt; 2020-08-18 15:08:19, 2020-08-18 15:02:49, 2020-08-18 14:...</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; $ link      &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1821289/00018212...</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; $ cik       &lt;chr&gt; "0001821289", "0001395213", "0001395213", "0001395213", "...</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; $ form_type &lt;chr&gt; "13F-HR", "6-K", "6-K", "6-K", "10-Q", "6-K", "6-K", "13F...</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; $ ticker    &lt;chr&gt; "None", "EDN", "EDN", "EDN", "None", "EDN", "USAS", "None...</span></span></code></pre></div>
+</div>
+<div id="quoting-cryptocurrencies" class="section level2">
+<h2 class="hasAnchor">
+<a href="#quoting-cryptocurrencies" class="anchor"></a>Quoting Cryptocurrencies</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>d &lt;-<span class="st"> </span><span class="kw"><a href="reference/fmpQuote.html">fmp_quote_cryptos</a></span>()</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">glimpse</span>(d)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; Rows: 110</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; Columns: 22</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; $ symbol                &lt;chr&gt; "VENUSD", "BCCOINUSD", "ATMUSD", "BLOCKUSD", ...</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; $ name                  &lt;chr&gt; "VeChain USD", "BitConnect Coin USD", "ATMCha...</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; $ price                 &lt;dbl&gt; 0.11546010, 0.03362903, 0.00007597, 1.3020548...</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; $ changes_percentage    &lt;dbl&gt; -4.46, -14.24, 0.00, -19.39, -3.28, -97.29, -...</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; $ change                &lt;dbl&gt; -0.00539107, -0.00558546, 0.00000000, -0.3132...</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; $ day_low               &lt;dbl&gt; 0.11424368, 0.03327839, 0.00007597, 1.3020548...</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; $ day_high              &lt;dbl&gt; 0.12176445, 0.03963807, 0.00007597, 1.6466447...</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; $ year_high             &lt;dbl&gt; 0.25831330, 0.06102869, 0.02260000, 4.3732100...</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; $ year_low              &lt;dbl&gt; 0.04083622, 0.00557612, 0.00007597, 0.5309521...</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; $ market_cap            &lt;dbl&gt; 8270951, 3270747, 759730, 9153998, 438433824,...</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; $ price_avg50           &lt;dbl&gt; 0.09785710, 0.01842272, 0.01950000, 1.3597058...</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; $ price_avg200          &lt;dbl&gt; 0.08679361, 0.02188870, 0.01950000, 1.4144092...</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; $ volume                &lt;dbl&gt; 206088, 102556, 0, 22385, 224010384, 0, 48135...</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; $ avg_volume            &lt;dbl&gt; 137852, 62513, 93337, 27533, 50312559, 0, 465...</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; $ exchange              &lt;chr&gt; "CRYPTO", "CRYPTO", "CRYPTO", "CRYPTO", "CRYP...</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; $ open                  &lt;dbl&gt; 0.12085117, 0.03921449, 0.00007597, 1.6153003...</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; $ previous_close        &lt;dbl&gt; 0.12085117, 0.03921449, 0.00007597, 1.6153003...</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; $ eps                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; $ pe                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; $ earnings_announcement &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="co">#&gt; $ shares_outstanding    &lt;dbl&gt; 71634712, 97259630, 10000394893, 7030425, 102...</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co">#&gt; $ timestamp             &lt;dbl&gt; 1597778598, 1597778598, 1597778598, 159777859...</span></span></code></pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/jpiburn/fmp">https://​github.com/​jpiburn/​fmp</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/jpiburn/fmp/issues">https://​github.com/​jpiburn/​fmp/​issues</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
@@ -237,7 +386,8 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Jesse Piburn <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-4967-7912" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
+<li>
+<a href="https://twitter.com/jesseopiburn">Jesse Piburn</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-4967-7912" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -245,7 +395,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=fmp"><img src="https://www.r-pkg.org/badges/version/fmp" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=fmpapi"><img src="https://www.r-pkg.org/badges/version/fmpapi" alt="CRAN status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
 </ul>
 </div>
@@ -254,7 +404,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Jesse Piburn.</p>
+  <p>Developed by <a href="https://twitter.com/jesseopiburn">Jesse Piburn</a>.</p>
 </div>
 
 <div class="pkgdown">

@@ -12,10 +12,10 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# fmp: An R package for interfacing with the Financial Modeling Prep API <img src='man/figures/logo.png' align="right" height="202.5" />
+# fmpapi: An R package for interfacing with the Financial Modeling Prep API <img src='man/figures/logo.png' align="right" height="202.5" />
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/fmp)](https://CRAN.R-project.org/package=fmp)
+[![CRAN status](https://www.r-pkg.org/badges/version/fmpapi)](https://CRAN.R-project.org/package=fmpapi)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
@@ -32,7 +32,7 @@ for collecting and analyzing financial data, such as `tidyquant`, `xts`, `TTR`, 
 You can install the latest development version of fmp from [Github](https://github.com) with:
 
 ``` r
-remotes::install_github('jpiburn/fmp')
+remotes::install_github('jpiburn/fmpapi')
 ```
 
 ## Getting Started
@@ -42,7 +42,7 @@ Before getting started with `fmp` you first must obtain an API key for the Finan
 Once you sign up, you can add your API key to your `.Renviron` file by using `fmp_api_key()`. This will add a `FMP_API_KEY` entry to your `.Renviron` file so it will automatically be available in future sessions. When first installed however, you will need to reload your .Renviron file by either restarting R or running `readRenviron('~/.Renviron')`
 
 ```{r api-key, eval=FALSE}
-library(fmp)
+library(fmpapi)
 
 api_key <- 'my_api_key'
 fmp_api_key(api_key)
@@ -55,7 +55,7 @@ readRenviron('~/.Renviron')
 ## Company Information and Financials
 
 ```{r company-info, message=FALSE, warning=FALSE}
-library(fmp)
+library(fmpapi)
 library(tidyverse)
 
 my_stocks <- c("AAPL", "GE")
