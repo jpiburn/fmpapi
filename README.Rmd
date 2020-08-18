@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
-The goal of `fmp` is to provide a simple and consistent interface to the **Financial Modeling Prep** [Financial Data API](https://financialmodelingprep.com/) that can be used along side and integrated with other common R resources 
+The goal of `fmpapi` is to provide a simple and consistent interface to the **Financial Modeling Prep** [Financial Data API](https://financialmodelingprep.com/) that can be used along side and integrated with other common R resources 
 for collecting and analyzing financial data, such as `tidyquant`, `xts`, `TTR`, and `quantmod`.
 
 ## Installation

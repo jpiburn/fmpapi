@@ -53,6 +53,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -79,7 +82,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>fmp</code> is to provide a simple and consistent interface to the <strong>Financial Modeling Prep</strong> <a href="https://financialmodelingprep.com/">Financial Data API</a> that can be used along side and integrated with other common R resources for collecting and analyzing financial data, such as <code>tidyquant</code>, <code>xts</code>, <code>TTR</code>, and <code>quantmod</code>.</p>
+<p>The goal of <code>fmpapi</code> is to provide a simple and consistent interface to the <strong>Financial Modeling Prep</strong> <a href="https://financialmodelingprep.com/">Financial Data API</a> that can be used along side and integrated with other common R resources for collecting and analyzing financial data, such as <code>tidyquant</code>, <code>xts</code>, <code>TTR</code>, and <code>quantmod</code>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -118,13 +121,13 @@
 <span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; Rows: 2</span></span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; Columns: 26</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; $ symbol              &lt;chr&gt; "AAPL", "GE"</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 462.565, 6.425</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; $ price               &lt;dbl&gt; 462.25, 6.44</span></span>
 <span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; $ beta                &lt;dbl&gt; 1.228499, 1.177065</span></span>
 <span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; $ vol_avg             &lt;dbl&gt; 36667309, 94472273</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.977757e+12, 5.623989e+10</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; $ mkt_cap             &lt;dbl&gt; 1.976410e+12, 5.637119e+10</span></span>
 <span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; $ last_div            &lt;dbl&gt; 3.18, 0.04</span></span>
 <span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; $ range               &lt;chr&gt; "201.0-464.35", "5.48-13.26"</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; 4.135, -0.045</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; $ changes             &lt;dbl&gt; 3.82, -0.03</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; $ company_name        &lt;chr&gt; "Apple Inc.", "General Electric Company"</span></span>
 <span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; $ exchange            &lt;chr&gt; "Nasdaq Global Select", "New York Stock Exchange"</span></span>
 <span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; $ exchange_short_name &lt;chr&gt; "NASDAQ", "NYSE"</span></span>
@@ -325,12 +328,12 @@
 <span id="cb9-3"><a href="#cb9-3"></a><span class="kw">glimpse</span>(d)</span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; Rows: 1,000</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; Columns: 6</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; $ title     &lt;chr&gt; "13F-HR - Tri-Star Advisors Inc. (0001821289) (Filer)", "...</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; $ date      &lt;dttm&gt; 2020-08-18 15:08:19, 2020-08-18 15:02:49, 2020-08-18 14:...</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; $ link      &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1821289/00018212...</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; $ cik       &lt;chr&gt; "0001821289", "0001395213", "0001395213", "0001395213", "...</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; $ form_type &lt;chr&gt; "13F-HR", "6-K", "6-K", "6-K", "10-Q", "6-K", "6-K", "13F...</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; $ ticker    &lt;chr&gt; "None", "EDN", "EDN", "EDN", "None", "EDN", "USAS", "None...</span></span></code></pre></div>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; $ title     &lt;chr&gt; "6-K - ALCON INC (0001167379) (Filer)", "6-K - Sundial Gr...</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; $ date      &lt;dttm&gt; 2020-08-18 16:34:05, 2020-08-18 16:30:52, 2020-08-18 16:...</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; $ link      &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1167379/00016282...</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; $ cik       &lt;chr&gt; "0001167379", "0001766600", "0000707549", "0001582581", "...</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; $ form_type &lt;chr&gt; "6-K", "6-K", "10-K", "6-K", "6-K", "6-K", "10-Q", "10-K"...</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; $ ticker    &lt;chr&gt; "ALC", "SNDL", "LRCX", "VJET", "SE", "OCFT", "OEG", "ATGE...</span></span></code></pre></div>
 </div>
 <div id="quoting-cryptocurrencies" class="section level2">
 <h2 class="hasAnchor">
@@ -340,28 +343,28 @@
 <span id="cb10-3"><a href="#cb10-3"></a><span class="kw">glimpse</span>(d)</span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; Rows: 110</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; Columns: 22</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; $ symbol                &lt;chr&gt; "VENUSD", "BCCOINUSD", "ATMUSD", "BLOCKUSD", ...</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; $ name                  &lt;chr&gt; "VeChain USD", "BitConnect Coin USD", "ATMCha...</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; $ price                 &lt;dbl&gt; 0.11546010, 0.03362903, 0.00007597, 1.3020548...</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; $ changes_percentage    &lt;dbl&gt; -4.46, -14.24, 0.00, -19.39, -3.28, -97.29, -...</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; $ change                &lt;dbl&gt; -0.00539107, -0.00558546, 0.00000000, -0.3132...</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; $ day_low               &lt;dbl&gt; 0.11424368, 0.03327839, 0.00007597, 1.3020548...</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; $ day_high              &lt;dbl&gt; 0.12176445, 0.03963807, 0.00007597, 1.6466447...</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; $ year_high             &lt;dbl&gt; 0.25831330, 0.06102869, 0.02260000, 4.3732100...</span></span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; $ year_low              &lt;dbl&gt; 0.04083622, 0.00557612, 0.00007597, 0.5309521...</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; $ market_cap            &lt;dbl&gt; 8270951, 3270747, 759730, 9153998, 438433824,...</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; $ price_avg50           &lt;dbl&gt; 0.09785710, 0.01842272, 0.01950000, 1.3597058...</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; $ price_avg200          &lt;dbl&gt; 0.08679361, 0.02188870, 0.01950000, 1.4144092...</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; $ volume                &lt;dbl&gt; 206088, 102556, 0, 22385, 224010384, 0, 48135...</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; $ avg_volume            &lt;dbl&gt; 137852, 62513, 93337, 27533, 50312559, 0, 465...</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; $ symbol                &lt;chr&gt; "VENUSD", "XEMUSD", "FCTUSD", "BTGUSD", "SNTU...</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; $ name                  &lt;chr&gt; "VeChain USD", "NEM USD", "Factom USD", "Bitc...</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; $ price                 &lt;dbl&gt; 0.11546010, 0.07295448, 1.92054990, 11.191175...</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; $ changes_percentage    &lt;dbl&gt; -4.46, -7.72, 7.67, -4.06, -3.12, -2.79, -4.4...</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; $ change                &lt;dbl&gt; -0.00539107, -0.00610390, 0.13687700, -0.4732...</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; $ day_low               &lt;dbl&gt; 0.11424368, 0.07256725, 1.78367290, 11.063272...</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; $ day_high              &lt;dbl&gt; 0.12176445, 0.08022669, 1.98213640, 11.972866...</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; $ year_high             &lt;dbl&gt; 0.25831330, 0.08155244, 4.59151740, 22.963367...</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; $ year_low              &lt;dbl&gt; 0.04083622, 0.02660767, 1.06166160, 4.3138056...</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; $ market_cap            &lt;dbl&gt; 8270951, 656590272, 17834350, 196001392, 1224...</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; $ price_avg50           &lt;dbl&gt; 0.09785710, 0.05223353, 1.53808450, 9.9096950...</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; $ price_avg200          &lt;dbl&gt; 0.08679361, 0.04646599, 1.92155650, 9.4249120...</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; $ volume                &lt;dbl&gt; 206088, 47642760, 126651, 12221729, 20213638,...</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; $ avg_volume            &lt;dbl&gt; 137852, 13072513, 346662, 35788273, 20140676,...</span></span>
 <span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; $ exchange              &lt;chr&gt; "CRYPTO", "CRYPTO", "CRYPTO", "CRYPTO", "CRYP...</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; $ open                  &lt;dbl&gt; 0.12085117, 0.03921449, 0.00007597, 1.6153003...</span></span>
-<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; $ previous_close        &lt;dbl&gt; 0.12085117, 0.03921449, 0.00007597, 1.6153003...</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; $ open                  &lt;dbl&gt; 0.12085117, 0.07905838, 1.78367290, 11.664398...</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; $ previous_close        &lt;dbl&gt; 0.12085117, 0.07905838, 1.78367290, 11.664398...</span></span>
 <span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; $ eps                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
 <span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; $ pe                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
 <span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; $ earnings_announcement &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
-<span id="cb10-26"><a href="#cb10-26"></a><span class="co">#&gt; $ shares_outstanding    &lt;dbl&gt; 71634712, 97259630, 10000394893, 7030425, 102...</span></span>
-<span id="cb10-27"><a href="#cb10-27"></a><span class="co">#&gt; $ timestamp             &lt;dbl&gt; 1597778598, 1597778598, 1597778598, 159777859...</span></span></code></pre></div>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="co">#&gt; $ shares_outstanding    &lt;dbl&gt; 71634712, 8999999342, 9286064, 17513924, 3470...</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co">#&gt; $ timestamp             &lt;dbl&gt; 1597783350, 1597783350, 1597783350, 159778335...</span></span></code></pre></div>
 </div>
 </div>
   </div>
