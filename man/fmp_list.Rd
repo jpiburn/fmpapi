@@ -62,7 +62,7 @@ using function name as the groupBy name is more intuitive.
 \examples{
 
 \donttest{
-library(fmp)
+library(fmpapi)
 
 # all available stocks
 df_stocks <- fmp_list_stocks()

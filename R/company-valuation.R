@@ -182,18 +182,22 @@ fmp_financial_growth <- function(symbol, quarterly = FALSE) {
 #'
 #' @inheritParams fmp_profile
 #' @inherit fmp_profile return
+#' @param historical `logical`. If `TRUE` return daily historical values. If `FALSE`
+#'        return current estimate. Default is `FALSE`
 #'
 #' @examples
 #'
 #' \donttest{
 #' my_stocks <- c('AAPL', 'GE')
-#' d <- fmp_rating(my_stocks, quarterly = TRUE)
+#' d <- fmp_rating(my_stocks)
 #' }
 #'
 #' @export
 #' @family `Company Summaries`
-fmp_rating <- function(symbol) {
+fmp_rating <- function(symbol, historical = FALSE) {
   endpoint <- "rating"
+
+  if (historical) endpoint <- "historical-rating"
 
   request_urls <- build_request_urls(symbol, endpoint = endpoint)
   d <- get_request_content(request_urls)

@@ -89,9 +89,11 @@ request_url_content <- function(request_url, arguments) {
 
   if (length(arguments$endpoint) != 0) {
     if (arguments$endpoint[[1]] == 'historical-price-full') {
+      if (all(c('symbol', 'historical') %in% names(d))) {
       symbol <- d$symbol
       d <- tibble::as_tibble(d$historical)
       d <- tibble::add_column(d, symbol, .before = 1)
+      }
     }
   }
 
@@ -108,7 +110,7 @@ format_request_content <- function(df, arguments) {
     if (!is.null(arguments$endpoint)) {
 
       # dcf -----
-      if (arguments$endpoint == 'historical-discounted-cash-flow' && arguments$historical == TRUE)
+      if (arguments$endpoint[[1]] == 'historical-discounted-cash-flow' && arguments$historical == TRUE)
         df <- tidyr::unnest(df, cols = tidyselect::contains("historicalDCF"))
 
       # historical-price-full

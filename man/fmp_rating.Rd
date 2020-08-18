@@ -4,10 +4,13 @@
 \alias{fmp_rating}
 \title{Company Rating}
 \usage{
-fmp_rating(symbol)
+fmp_rating(symbol, historical = FALSE)
 }
 \arguments{
 \item{symbol}{\code{character}. A vector of stock symbols.}
+
+\item{historical}{\code{logical}. If \code{TRUE} return daily historical values. If \code{FALSE}
+return current estimate. Default is \code{FALSE}}
 }
 \value{
 a \link[tibble:tibble-package]{tibble} of relevant financial information
@@ -19,7 +22,7 @@ Company Rating
 
 \donttest{
 my_stocks <- c('AAPL', 'GE')
-d <- fmp_rating(my_stocks, quarterly = TRUE)
+d <- fmp_rating(my_stocks)
 }
 
 }

@@ -81,7 +81,7 @@ Company Stock Screener
 \examples{
 
 \donttest{
-library(fmp)
+library(fmpapi)
 
 # small cap, high beta tech stocks
 d <- fmp_screen_stocks(marketCapLowerThan = 1e9, betaMoreThan = 2, sector = 'Technology')

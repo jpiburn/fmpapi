@@ -1,4 +1,4 @@
-Package: fmp
+Package: fmpapi
 Type: Package
 Title: Access to the Financial Modeling Prep Financial Data API
 Version: 0.1.0
