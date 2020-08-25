@@ -47,6 +47,7 @@ reference:
       of public companies
     contents:
       - fmp_profile
+      - fmp_key_executives
       - fmp_13f
       - fmp_balance_sheet
       - fmp_cash_flow

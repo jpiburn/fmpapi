@@ -35,6 +35,7 @@ Other \verb{Company Summaries}:
 \code{\link{fmp_enterprise_value}()},
 \code{\link{fmp_full_financial}()},
 \code{\link{fmp_income}()},
+\code{\link{fmp_key_executives}()},
 \code{\link{fmp_key_metrics}()},
 \code{\link{fmp_market_cap}()},
 \code{\link{fmp_profile}()},

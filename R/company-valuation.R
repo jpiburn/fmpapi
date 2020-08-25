@@ -73,6 +73,30 @@ fmp_dividends <- function(symbol) {
 
 
 
+#' Company Key Executives
+#'
+#' @param symbol `character`. A vector of stock symbols.
+#'
+#' @return a [tibble][tibble::tibble-package] of relevant financial information
+#'
+#' @examples
+#'
+#' \donttest{
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_key_executives(my_stocks)
+#' }
+#'
+#' @export
+#' @family `Company Summaries`
+fmp_key_executives <- function(symbol) {
+  endpoint <- 'key-executives'
+
+  request_urls <- build_request_urls(symbol, endpoint = endpoint)
+  d <- get_request_content(request_urls, endpoint = endpoint)
+
+  d
+}
+
 
 #' Company Financial Ratios
 #'
