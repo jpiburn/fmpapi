@@ -89,7 +89,7 @@
 <!-- You can install the released version of fmp from [CRAN](https://CRAN.R-project.org) with: -->
 <!-- --- actually not on CRAN yet -->
 <!-- ``` r -->
-<!-- install.packages("fmp") -->
+<!-- install.packages("fmpapi") -->
 <!-- ``` -->
 <p>You can install the latest development version of fmp from <a href="https://github.com">Github</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'jpiburn/fmpapi'</span>)</span></code></pre></div>
@@ -328,12 +328,12 @@
 <span id="cb9-3"><a href="#cb9-3"></a><span class="kw">glimpse</span>(d)</span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; Rows: 1,000</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; Columns: 6</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; $ title     &lt;chr&gt; "6-K - ALCON INC (0001167379) (Filer)", "6-K - Sundial Gr...</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; $ date      &lt;dttm&gt; 2020-08-18 16:34:05, 2020-08-18 16:30:52, 2020-08-18 16:...</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; $ link      &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1167379/00016282...</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; $ cik       &lt;chr&gt; "0001167379", "0001766600", "0000707549", "0001582581", "...</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; $ form_type &lt;chr&gt; "6-K", "6-K", "10-K", "6-K", "6-K", "6-K", "10-Q", "10-K"...</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; $ ticker    &lt;chr&gt; "ALC", "SNDL", "LRCX", "VJET", "SE", "OCFT", "OEG", "ATGE...</span></span></code></pre></div>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; $ title     &lt;chr&gt; "6-K - Navios South American Logistics Inc. (0001506042) ...</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt; $ date      &lt;dttm&gt; 2020-08-18 16:46:29, 2020-08-18 16:44:29, 2020-08-18 16:...</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; $ link      &lt;chr&gt; "https://www.sec.gov/Archives/edgar/data/1506042/00011931...</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; $ cik       &lt;chr&gt; "0001506042", "0001803284", "0001372184", "0000057131", "...</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; $ form_type &lt;chr&gt; "6-K", "10-K", "10-Q", "10-Q", "10-Q", "6-K", "6-K", "10-...</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; $ ticker    &lt;chr&gt; "None", "None", "NWYU", "LZB", "AAP", "ALC", "SNDL", "LRC...</span></span></code></pre></div>
 </div>
 <div id="quoting-cryptocurrencies" class="section level2">
 <h2 class="hasAnchor">
@@ -343,28 +343,28 @@
 <span id="cb10-3"><a href="#cb10-3"></a><span class="kw">glimpse</span>(d)</span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; Rows: 110</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; Columns: 22</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; $ symbol                &lt;chr&gt; "VENUSD", "DGDUSD", "LINKUSD", "MAIDUSD", "SN...</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; $ name                  &lt;chr&gt; "VeChain USD", "DigixDAO USD", "Chainlink USD...</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; $ price                 &lt;dbl&gt; 0.11546010, 81.96400000, 16.84748600, 0.10216...</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; $ changes_percentage    &lt;dbl&gt; -4.46, -1.06, -0.36, -3.25, -3.13, -14.24, 0....</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; $ change                &lt;dbl&gt; -0.00539107, -0.87491000, -0.06106800, -0.003...</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; $ day_low               &lt;dbl&gt; 0.11424368, 77.58277000, 15.37713300, 0.10215...</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; $ day_high              &lt;dbl&gt; 0.12176445, 82.98865500, 17.66202000, 0.10807...</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; $ year_high             &lt;dbl&gt; 0.25831330, 84.84433000, 19.85182200, 0.23715...</span></span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; $ year_low              &lt;dbl&gt; 0.04083622, 9.74058900, 1.50686790, 0.0360942...</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; $ market_cap            &lt;dbl&gt; 8270951, 13346843, 5896620032, 46234092, 1224...</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; $ price_avg50           &lt;dbl&gt; 0.09785710, 58.46688500, 8.89805900, 0.101361...</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; $ price_avg200          &lt;dbl&gt; 0.08679361, 43.16489000, 4.90686660, 0.095462...</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; $ volume                &lt;dbl&gt; 206088, 104847, 3378356224, 278623, 20210112,...</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; $ avg_volume            &lt;dbl&gt; 137852, 1693421, 722942630, 243177, 20140676,...</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; $ symbol                &lt;chr&gt; "VENUSD", "BLOCKUSD", "MAIDUSD", "GAMEUSD", "...</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; $ name                  &lt;chr&gt; "VeChain USD", "Blocknet USD", "MaidSafeCoin ...</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; $ price                 &lt;dbl&gt; 0.11546010, 1.35140470, 0.10211494, 0.0759092...</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; $ changes_percentage    &lt;dbl&gt; -4.46, -16.34, -3.29, -3.19, -14.24, 0.00, 6....</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; $ change                &lt;dbl&gt; -0.00539107, -0.26389560, -0.00347786, -0.002...</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; $ day_low               &lt;dbl&gt; 0.11424368, 1.28605230, 0.10211494, 0.0720481...</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; $ day_high              &lt;dbl&gt; 0.12176445, 1.64664470, 0.10807621, 0.0793961...</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; $ year_high             &lt;dbl&gt; 0.25831330, 4.37321000, 0.23715703, 0.1187331...</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; $ year_low              &lt;dbl&gt; 0.04083622, 0.53095210, 0.03609427, 0.0136530...</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; $ market_cap            &lt;dbl&gt; 8270951, 9501057, 46212364, 7526038, 3270747,...</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; $ price_avg50           &lt;dbl&gt; 0.09785710, 1.35970580, 0.10136195, 0.0738029...</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; $ price_avg200          &lt;dbl&gt; 0.08679361, 1.41440920, 0.09546266, 0.0550806...</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; $ volume                &lt;dbl&gt; 206088, 22293, 278380, 174828, 102556, 0, 253...</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; $ avg_volume            &lt;dbl&gt; 137852, 27533, 243177, 123968, 62513, 93337, ...</span></span>
 <span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; $ exchange              &lt;chr&gt; "CRYPTO", "CRYPTO", "CRYPTO", "CRYPTO", "CRYP...</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; $ open                  &lt;dbl&gt; 0.12085117, 82.83891000, 16.90855400, 0.10559...</span></span>
-<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; $ previous_close        &lt;dbl&gt; 0.12085117, 82.83891000, 16.90855400, 0.10559...</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; $ open                  &lt;dbl&gt; 0.12085117, 1.61530030, 0.10559280, 0.0784081...</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; $ previous_close        &lt;dbl&gt; 0.12085117, 1.61530030, 0.10559280, 0.0784081...</span></span>
 <span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; $ eps                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
 <span id="cb10-24"><a href="#cb10-24"></a><span class="co">#&gt; $ pe                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
 <span id="cb10-25"><a href="#cb10-25"></a><span class="co">#&gt; $ earnings_announcement &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...</span></span>
-<span id="cb10-26"><a href="#cb10-26"></a><span class="co">#&gt; $ shares_outstanding    &lt;dbl&gt; 71634712, 162838, 349999996, 452552437, 34704...</span></span>
-<span id="cb10-27"><a href="#cb10-27"></a><span class="co">#&gt; $ timestamp             &lt;dbl&gt; 1597783563, 1597783563, 1597783563, 159778356...</span></span></code></pre></div>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="co">#&gt; $ shares_outstanding    &lt;dbl&gt; 71634712, 7030505, 452552428, 99145190, 97259...</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co">#&gt; $ timestamp             &lt;dbl&gt; 1597783638, 1597783638, 1597783638, 159778363...</span></span></code></pre></div>
 </div>
 </div>
   </div>

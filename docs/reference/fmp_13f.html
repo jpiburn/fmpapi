@@ -162,8 +162,13 @@ will be taken from <code><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date
 
 <span class='co'># \donttest{</span>
 <span class='co'># 13-F forms from 2018</span>
-<span class='no'>d_18</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_13f</span>(<span class='no'>berkshire_cik</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2018</span>)
-<span class='co'># }</span></div></pre>
+<span class='no'>d_18</span> <span class='kw'>&lt;-</span> <span class='fu'>fmp_13f</span>(<span class='no'>berkshire_cik</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2018</span>)</div><div class='output co'>#&gt; <span class='error'>Error: API request failed for failed and returned the following information.</span>
+#&gt; <span class='error'>request_url: https://financialmodelingprep.com/api/v3/form-thirteen/0001067983?year=2018&amp;apikey=a353560ff43d9316e4fefd4e1f550a05</span>
+#&gt; <span class='error'>message: Server error: (504) Gateway Timeout</span>
+#&gt; <span class='error'>category: Server error</span>
+#&gt; <span class='error'>reason: Gateway Timeout</span></div><div class='input'># }
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
