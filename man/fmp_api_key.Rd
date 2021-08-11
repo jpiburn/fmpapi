@@ -4,7 +4,7 @@
 \alias{fmp_api_key}
 \title{Install a Financial Modeling Prep API Key in Your \code{.Renviron} File for Repeated Use}
 \usage{
-fmp_api_key(key, install = TRUE, overwrite = FALSE)
+fmp_api_key(key, install = TRUE, overwrite = FALSE, fmpcloud_access = FALSE)
 }
 \arguments{
 \item{key}{\code{character}. The API key acquired from \href{https://financialmodelingprep.com/developer/docs/pricing/}{'https://financialmodelingprep.com/developer/docs/pricing/'}}
@@ -14,6 +14,9 @@ If \code{FALSE}, key is only loaded for the current R session and will not persi
 This is potentially useful if you wish to access the API from a non-personal computer. Default is \code{TRUE}.}
 
 \item{overwrite}{\code{logical}. If \code{TRUE}, overwrite any existing FMP_API_KEY that you already have in your \code{.Renviron} file.}
+
+\item{fmpcloud_access}{logical. Is this key additionally activated on the \href{https://fmpcloud.io}{'fmpcloud.io'} server?
+default is \code{FALSE}}
 }
 \description{
 This function will add your FMP API key to your \code{.Renviron} file

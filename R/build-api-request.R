@@ -1,9 +1,23 @@
+#' Currently requests are rate limited to 8 per
 #' @noRd
-build_request_urls <- function(base_path, endpoint, query_list = NULL) {
+get_base_url <- function(base_source = c('fmp', 'cloud', 'all')) {
+  base_source <- match.arg(base_source)
+
+  if (base_source == 'fmp') base_url <- 'https://financialmodelingprep.com'
+  if (base_source == 'cloud') base_url <- 'https://fmpcloud.io'
+  if (base_source == 'all') base_url <-  c('https://financialmodelingprep.com', 'https://fmpcloud.io')
+
+  base_url
+}
+
+#' @noRd
+build_request_urls <- function(path_params, api_version = 'v3', endpoint, query_list = NULL, base_url = NULL) {
 
   if (Sys.getenv('FMP_API_KEY') != '')  {
 
     apikey <- Sys.getenv('FMP_API_KEY')
+    cloud_access <- as.logical(Sys.getenv('FMP_CLOUD_ACCESS'))
+    if(is.na(cloud_access)) cloud_access <- FALSE
 
   } else {
 
@@ -19,20 +33,49 @@ build_request_urls <- function(base_path, endpoint, query_list = NULL) {
     apikey <- 'demo'
   }
 
-
-  if (is.null(base_path)) {
-    request_urls <- httr::modify_url('https://financialmodelingprep.com',
-                                     path =  c('api', 'v3', endpoint),
-                                     query = as.list(c(query_list, apikey = apikey))
-                                     )
+  # determine if base_urls -----
+  if (is.null(base_url)) {
+   if (cloud_access) base_url <- get_base_url('all')
+   else base_url <- get_base_url('fmp')
   }
+
+  # if access to only one server (e.g. no fmpcloud access) -----
+  if (length(base_url) == 1) {
+    if (is.null(path_params)) {
+      request_urls <- httr::modify_url(base_url,
+                                       path =  c('api', api_version, endpoint),
+                                       query = as.list(c(query_list, apikey = apikey))
+                                       )
+    }
+    else {
+    request_urls <- purrr::map_chr(path_params,
+                   ~ httr::modify_url(base_url,
+                                      path =  c('api', api_version, endpoint, .x),
+                                      query = as.list(c(query_list, apikey = apikey))
+                                      )
+                                   )
+    }
+  }
+  # if access to multiple servers (e.g. has fmpcloud access) -----
   else {
-  request_urls <- purrr::map_chr(base_path,
-                 ~ httr::modify_url('https://financialmodelingprep.com',
-                                    path =  c('api', 'v3', endpoint, .x),
-                                    query = as.list(c(query_list, apikey = apikey))
-                                    )
-                                 )
+    if (is.null(path_params)) {
+      request_urls <- httr::modify_url(sample(base_url, 1), # spread calls across all servers
+                                       path =  c('api', api_version, endpoint),
+                                       query = as.list(c(query_list, apikey = apikey))
+      )
+    }
+    else {
+
+      n_params <- length(path_params)
+      n_urls <- length(base_url)
+      url_params <- rep(base_url, ceiling(n_params / n_urls))[1:n_params]
+      request_urls <- purrr::map2_chr(path_params, url_params,
+                                     ~ httr::modify_url(.y,
+                                                        path =  c('api', api_version, endpoint, .x),
+                                                        query = as.list(c(query_list, apikey = apikey))
+                                     )
+      )
+    }
   }
 
   request_urls
@@ -126,10 +169,30 @@ format_request_content <- function(df, arguments) {
   d <- janitor::clean_names(df)
   d <- tibble::as_tibble(d)
 
-  d <- dplyr::mutate_if(d, is.character, readr::parse_guess)
+  # the symbol for TrueCar is "TRUE" so need to skip the symbol col when parsing
+  # which is probably a good idea anyways
+  # this would work but where() is not an exported function from tidyselect
+  # it might be in the next release... https://github.com/r-lib/tidyselect/issues/201
+  # d <- dplyr::mutate(d, dplyr::across(tidyselect:::where(is.character) & !symbol, readr::parse_guess))
+
+  # until where is exported just use this
+  skip_cols <- c("symbol", "phone", "zip", "cik", "isin",
+                 "cusip", "address", "city", "state", "website",
+                 "country", "description", "ceo")
+  col_types <- sapply(d, class)
+  char_cols <- setdiff(names(col_types[col_types == "character"]), skip_cols)
+
+  lgl_cols <- names(col_types[col_types == "logical"])
+  lgl_cols <- setdiff(lgl_cols[!grepl("is_|default_image", lgl_cols)], skip_cols)
+
+  d <- dplyr::mutate(d, dplyr::across(char_cols, readr::parse_guess))
+  d <- dplyr::mutate(d, dplyr::across(lgl_cols, as.numeric))
   d <- dplyr::mutate_if(d, is.integer, as.numeric)
-  d <- dplyr::mutate_if(d, is.logical, as.numeric)
+
+  # not sure why I put this here... keeping in case there was an actual reason and i forgot
+  # d <- dplyr::mutate_if(d, is.logical, as.numeric)
 
 
   d
 }
+
