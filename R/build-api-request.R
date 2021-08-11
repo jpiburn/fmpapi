@@ -95,7 +95,7 @@ get_request_content <- function(request_urls, ...) {
 #' @noRd
 request_url_content <- function(request_url, arguments) {
 
-  ua <- httr::user_agent("https://github.com/jpiburn/fmp")
+  ua <- httr::user_agent("https://github.com/jpiburn/fmpapi")
   get_return <- httr::GET(request_url, ua)
 
   if (httr::http_error(get_return)) {
