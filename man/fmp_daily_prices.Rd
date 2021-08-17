@@ -4,7 +4,13 @@
 \alias{fmp_daily_prices}
 \title{Daily Security Prices}
 \usage{
-fmp_daily_prices(symbol, start_date = NULL, end_date = NULL, last_n = NULL)
+fmp_daily_prices(
+  symbol,
+  start_date = NULL,
+  end_date = NULL,
+  last_n = NULL,
+  ...
+)
 }
 \arguments{
 \item{symbol}{\code{character}. A vector of stock symbols.}
@@ -14,6 +20,8 @@ fmp_daily_prices(symbol, start_date = NULL, end_date = NULL, last_n = NULL)
 \item{end_date}{\code{character}. ISO-8601 formatted date. For example, \code{'2020-06-25'}}
 
 \item{last_n}{\code{numeric}. An alternative to \code{start_date} and \code{end_date}. return the last \code{n} days}
+
+\item{...}{additional parameters}
 }
 \value{
 a \link[tibble:tibble-package]{tibble} of quotes of requested securities

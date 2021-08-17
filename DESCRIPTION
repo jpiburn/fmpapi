@@ -1,7 +1,7 @@
 Package: fmpapi
 Type: Package
 Title: Access to the Financial Modeling Prep Financial Data API
-Version: 0.1.0
+Version: 0.1.2
 Authors@R: 
     c(person(given = "Jesse",
              family = "Piburn",
@@ -26,6 +26,6 @@ Imports:
     tidyr,
     utils
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.1
+RoxygenNote: 7.1.1
 URL: https://github.com/jpiburn/fmpapi
 BugReports: https://github.com/jpiburn/fmpapi/issues

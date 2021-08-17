@@ -10,6 +10,8 @@
 #'        If `FALSE`, key is only loaded for the current R session and will not persist when a new session is loaded.
 #'        This is potentially useful if you wish to access the API from a non-personal computer. Default is `TRUE`.
 #' @param overwrite `logical`. If `TRUE`, overwrite any existing FMP_API_KEY that you already have in your `.Renviron` file.
+#' @param fmpcloud_access logical. Is this key additionally activated on the ['fmpcloud.io'](https://fmpcloud.io) server?
+#'        default is `FALSE`
 #' @examples
 #'
 #' \dontrun{
@@ -25,7 +27,7 @@
 #' Sys.getenv("FMP_API_KEY")
 #' }
 #' @export
-fmp_api_key <- function(key, install = TRUE, overwrite = FALSE) {
+fmp_api_key <- function(key, install = TRUE, overwrite = FALSE, fmpcloud_access = FALSE) {
 
   if (install) {
     home <- Sys.getenv("HOME")
@@ -51,8 +53,10 @@ fmp_api_key <- function(key, install = TRUE, overwrite = FALSE) {
     }
 
     key_text <- glue::glue("FMP_API_KEY='{key}'")
+    fmpcloud_access_text <- glue::glue("FMP_CLOUD_ACCESS={fmpcloud_access}")
 
     write(key_text, renv, sep = "\n", append = TRUE)
+    write(fmpcloud_access_text, renv, sep = "\n", append = TRUE)
 
     key_message <- glue::glue("Your API key has been stored in your .Renviron file and can be accessed by `Sys.getenv('FMP_API_KEY')`",
                               "To use now, restart R or run `readRenviron('~/.Renviron')`",
@@ -64,6 +68,18 @@ fmp_api_key <- function(key, install = TRUE, overwrite = FALSE) {
   } else {
     message("To install your API key for use in future sessions, run this function with `install = TRUE`.")
     Sys.setenv(FMP_API_KEY = key)
+    Sys.setenv(FMP_CLOUD_ACCESS = fmpcloud_access)
   }
 
 }
+
+
+#' @noRd
+is_char_not_symbol <- function(x) {
+
+  out <- FALSE
+
+  if (is.character(x) && x != "symbol") out <- TRUE
+
+  out
+  }

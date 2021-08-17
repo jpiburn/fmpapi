@@ -322,3 +322,37 @@ fmp_market_cap <- function(symbol, historical = FALSE) {
 
   d
 }
+
+
+
+
+
+
+#' Company Outlook
+#'
+#' @param symbol `character`. A vector of stock symbols.
+#'
+#' @return a [tibble][tibble::tibble-package] of relevant financial information
+#'
+#' @examples
+#'
+#' \donttest{
+#' my_stocks <- c('AAPL', 'GE')
+#' d <- fmp_company_outlook(my_stocks)
+#' }
+#'
+#' @export
+#' @family `Company Summaries`
+fmp_company_outlook <- function(symbol) {
+  endpoint <- "company-outlook"
+
+  query_list <- list(
+    symbol = symbol
+  )
+
+  request_urls <- build_request_urls(NULL, api_version = 'v4', endpoint = endpoint, query_list = query_list)
+  d <- get_request_content(request_urls, endpoint = endpoint)
+
+  d
+}
+
