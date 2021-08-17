@@ -2,6 +2,12 @@
 #' @noRd
 format_request_content <- function(df, arguments) {
 
+  if (!is.null(arguments$endpoint) && arguments$endpoint == "company-outlook") {
+    return(df)
+  } else{
+    df <- dplyr::bind_rows(df)
+  }
+
   if (length(arguments) != 0) { # any additional special case formatting
 
     # any endpoint specific formatting -----

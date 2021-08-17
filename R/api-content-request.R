@@ -3,7 +3,8 @@
 get_request_content <- function(request_urls, ...) {
   arguments <- list(...)
 
-  d <- purrr::map_dfr(request_urls, ~ request_url_content(.x, arguments = arguments))
+ # d <- purrr::map_dfr(request_urls, ~ request_url_content(.x, arguments = arguments))
+  d <- purrr::map(request_urls, ~ request_url_content(.x, arguments = arguments))
   d <- format_request_content(d, arguments = arguments)
 
   d

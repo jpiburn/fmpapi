@@ -1,7 +1,7 @@
 Package: fmpapi
 Type: Package
 Title: Access to the Financial Modeling Prep Financial Data API
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     c(person(given = "Jesse",
              family = "Piburn",

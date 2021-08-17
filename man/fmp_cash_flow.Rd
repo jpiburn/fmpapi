@@ -32,18 +32,21 @@ d <- fmp_cash_flow(my_stocks, quarterly = TRUE)
 \seealso{
 Other \verb{Company Summaries}: 
 \code{\link{fmp_balance_sheet}()},
+\code{\link{fmp_company_outlook}()},
 \code{\link{fmp_dcf}()},
 \code{\link{fmp_dividends}()},
 \code{\link{fmp_enterprise_value}()},
 \code{\link{fmp_financial_growth}()},
 \code{\link{fmp_full_financial}()},
 \code{\link{fmp_income}()},
+\code{\link{fmp_institutional_holders}()},
 \code{\link{fmp_key_executives}()},
 \code{\link{fmp_key_metrics}()},
 \code{\link{fmp_market_cap}()},
 \code{\link{fmp_profile}()},
 \code{\link{fmp_rating}()},
 \code{\link{fmp_ratios}()},
+\code{\link{fmp_shares_float}()},
 \code{\link{fmp_splits}()}
 }
 \concept{\verb{Company Summaries}}
